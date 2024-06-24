@@ -33,3 +33,13 @@ if __name__ == '__main__':
         print("Uno dei 2 e' True")
     else:
         print("Entrambi False")
+
+    # for
+    for numero in range(1,10,2):
+        print(numero)
+
+    i = 0
+    # while
+    while i < 8:
+        print(i)
+        i += 1
