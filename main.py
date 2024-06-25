@@ -1,4 +1,8 @@
 if __name__ == '__main__':
+    def function():
+        print("Questa e' la mia prima funzione")
+
+
     print("Hello")
 
     # assegnazione variabile
@@ -43,3 +47,5 @@ if __name__ == '__main__':
     while i < 8:
         print(i)
         i += 1
+
+function()
