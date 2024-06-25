@@ -49,3 +49,20 @@ if __name__ == '__main__':
         i += 1
 
 function()
+
+a = input("Inserisci numero: ")
+b = input("Inserisci numero: ")
+print(int(a) + int(b))
+print(int(a) - int(b))
+print(int(a) * int(b))
+print(int(a) / int(b))
+print(int(a) // int(b))
+print(int(a) % int(b))
+
+print(int(a) > int(b))
+print(int(a) < int(b))
+print(int(a) == int(b))
+print(int(a) >= int(b))
+print(int(a) <= int(b))
+print(int(a) != int(b))
+
