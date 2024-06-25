@@ -1,68 +1,38 @@
 if __name__ == '__main__':
-    def function():
-        print("Questa e' la mia prima funzione")
+    a = 3
+    b = 3
+    print(a is b)
 
+    a = 2
+    print(a is not b)
+    print(a is b)
 
-    print("Hello")
+    a = "ciao"
+    print("c" in a)
+    print("i" in a)
+    print("a" in a)
+    print("o" in a)
+    print("s" in a)
 
-    # assegnazione variabile
-    x = "Sera"
+    a = 4
+    totale = (a * b) + (a * 2)
+    print(totale)
 
-    # output
-    print("in questo momento e'" + x)
+    a += b
+    print(a)
 
-    # input
-    x = input("Inserisci numero: ")
+    a -= b
+    print(a)
 
-    # output
-    print(str(x))
+    a *= b
+    print(a)
 
-    # condition
-    if 5 >= int(x) >= 2:
-        print("Il numero e' maggiore di 1 e minore di 6")
-    else:
-        print("Il numero non e' maggiore di 1 e minore di 6")
+    a /= b
+    print(a)
 
-    a = True
-    b = False
-
-    # and
-    if a and b:
-        print("Entrambi True")
-    else:
-        print("Uno dei due non e' True")
-
-    # or
-    if a or b:
-        print("Uno dei 2 e' True")
-    else:
-        print("Entrambi False")
-
-    # for
-    for numero in range(1,10,2):
-        print(numero)
-
-    i = 0
-    # while
-    while i < 8:
-        print(i)
-        i += 1
-
-function()
-
-a = input("Inserisci numero: ")
-b = input("Inserisci numero: ")
-print(int(a) + int(b))
-print(int(a) - int(b))
-print(int(a) * int(b))
-print(int(a) / int(b))
-print(int(a) // int(b))
-print(int(a) % int(b))
-
-print(int(a) > int(b))
-print(int(a) < int(b))
-print(int(a) == int(b))
-print(int(a) >= int(b))
-print(int(a) <= int(b))
-print(int(a) != int(b))
-
+    c = 5
+    print(a > b or a < c)
+    print(b < a < c)
+    print(c > b or a < c)
+    print(b > a and a < c)
+    print(b > a and c < a)
