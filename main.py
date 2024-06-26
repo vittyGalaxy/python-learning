@@ -1,17 +1,60 @@
 if __name__ == '__main__':
     lista = [1, 2, 3, 4, 5]
+
     print(lista)
 
-    lista[0] = 17
+    print(len(lista))
+
+    lista.append(6)
+
     print(lista)
 
-    print(3 in lista)
-    print(40 in lista)
+    lista.insert(0,0)
+    print(lista)
 
-    lista2 = (6, 7, 8, 9, 10)
-    print(lista2)
-    print(6 in lista2)
-    print(40 in lista2)
+    print(lista.index(4))
 
-    print(lista[:2])
-    print(lista[2:])
+    lista.pop()
+    print(lista)
+
+    lista = [4, 3, 2, 1]
+    print(lista)
+
+    lista.sort()
+    print(lista)
+
+    lista.reverse()
+    print(lista)
+
+    lista.remove(3)
+    print(lista)
+
+    del lista[0:2]
+    print(lista)
+
+    lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    print(lista)
+
+    del lista[0:4]
+    print(lista)
+
+    lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    print(lista)
+
+    del lista[0:4]
+    print(lista)
+
+    lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    del lista[2:4]
+    print(lista)
+
+    lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    del lista[:4]
+    print(lista)
+
+    lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    del lista[4:]
+    print(lista)
