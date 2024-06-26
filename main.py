@@ -1,7 +1,15 @@
 if __name__ == '__main__':
-    abilita = ["comunicazione", "memoria", "ragionamento", "concentrazione"]
-    voti = [87, 95, 89, 75]
-    abilita.append("agilita mentale")
-    voti.append(80)
-    unione = list(zip(abilita, voti))
-    print(unione)
+    t = ()
+    print(type(t))
+
+    t = (4)
+    print(type(t))
+
+    t = (4,)
+    print(type(t))
+
+    t = (4, 5, 6)
+    (primo, secondo, terzo) = t
+    print(primo)
+    print(secondo)
+    print(terzo)
