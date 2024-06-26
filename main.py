@@ -1,28 +1,17 @@
 if __name__ == '__main__':
-    a = "ciao"
-    b = 3
-    print(str(b) + a)
+    lista = [1, 2, 3, 4, 5]
+    print(lista)
 
-    c = a[:0]
-    d = a[:1]
-    e = a[:2]
-    f = a[:3]
-    g = a[:4]
-    h = a[2:3]
-    print(c)
-    print(d)
-    print(e)
-    print(f)
-    print(g)
-    print(h)
+    lista[0] = 17
+    print(lista)
 
-    a = True
-    b = True
-    c = not(not(a and b) or (b and a) and not b)
-    print(c)
+    print(3 in lista)
+    print(40 in lista)
 
-    b = False
-    print(a)
-    print(b)
-    print(int(a))
-    print(int(b))
+    lista2 = (6, 7, 8, 9, 10)
+    print(lista2)
+    print(6 in lista2)
+    print(40 in lista2)
+
+    print(lista[:2])
+    print(lista[2:])
