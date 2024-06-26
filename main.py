@@ -1,60 +1,24 @@
 if __name__ == '__main__':
-    lista = [1, 2, 3, 4, 5]
-
+    lista = [["Hello", 33], ["Word", 3]]
     print(lista)
 
-    print(len(lista))
+    lista1 = ["Hello", "Word"]
+    lista2 = [33, 3]
+    unione = zip(lista1, lista2)
 
-    lista.append(6)
+    print(list(unione))
 
+    unione = lista1 + lista2
+    print(unione)
+
+    lista = range(10)
     print(lista)
 
-    lista.insert(0,0)
-    print(lista)
+    lista = range(10)
+    print(list(lista))
 
-    print(lista.index(4))
+    lista = range(2, 10)
+    print(list(lista))
 
-    lista.pop()
-    print(lista)
-
-    lista = [4, 3, 2, 1]
-    print(lista)
-
-    lista.sort()
-    print(lista)
-
-    lista.reverse()
-    print(lista)
-
-    lista.remove(3)
-    print(lista)
-
-    del lista[0:2]
-    print(lista)
-
-    lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    print(lista)
-
-    del lista[0:4]
-    print(lista)
-
-    lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-    print(lista)
-
-    del lista[0:4]
-    print(lista)
-
-    lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-    del lista[2:4]
-    print(lista)
-
-    lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-    del lista[:4]
-    print(lista)
-
-    lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-    del lista[4:]
-    print(lista)
+    lista = range(2, 10, 3)
+    print(list(lista))
