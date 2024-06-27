@@ -1,9 +1,16 @@
 if __name__ == '__main__':
-    def Welcome():
-        print("Hello Word")
+    def sum(add1, add2):
+        print(add1 + add2)
 
-    def stampa(string):
-        print(string)
 
-    Welcome()
-    stampa("Hello Word")
+    def sub(add1, add2=2):
+        print(add1 - add2)
+
+
+    def mul(add1, add2=2):
+        print(add1 * add2)
+
+
+    sum(1, 2)
+    sub(2)
+    mul(3, 3)
