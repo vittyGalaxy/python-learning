@@ -1,21 +1,22 @@
 if __name__ == '__main__':
-    def eta(num):
-        if num < 18:
-            print("Sei minorenne")
+    def convertitore(voto):
+        if voto >= 9.0:
+            return "A"
+
+        elif voto >= 7.0:
+            return "B"
+
+        elif voto >= 6.0:
+            return "C"
+
+        elif voto >= 5.0:
+            return "D"
+
         else:
-            print("Sei maggiorenne")
+            return "F"
 
-    eta(15)
-    eta(19)
-
-    def anni(num):
-        if num < 10:
-            print("Sei un bambino")
-        elif num < 18:
-            print("Sei quasi maggiorenne")
-        else:
-            print("Sei maggiorenne")
-
-    anni(16)
-    anni(9)
-    anni(20)
+    print(convertitore(9))
+    print(convertitore(7))
+    print(convertitore(6))
+    print(convertitore(5))
+    print(convertitore(2))
