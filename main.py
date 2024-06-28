@@ -1,31 +1,12 @@
 if __name__ == '__main__':
+    print((lambda x: x ** 2)(2))
 
-    # String
-    # join
-    lista = ["Vittorio", "Angelo"]
-    print(", ".join(lista))
+    quadrato = lambda x: x ** 2
+    print(quadrato(4))
 
-    # replace
-    print("Hello World!".replace("World", "Vittorio"))
 
-    # lower and upper
-    print("Hello World!".lower())
-    print("Hello World!".upper())
+    def funct(f, num):
+        return f(num)
 
-    # split
-    print("Hello, World!".split(", "))
 
-    # Numeric
-    # max and min
-    print(min(1, 2, 3, 0, 10))
-    print(max(1, 2, 3, 0, 10))
-    print(max([1, 2, 3, 0, 10]))
-
-    # abs
-    print(abs(-50))
-
-    # sum
-    print(sum([9, 16]))
-
-    # round
-    print(round(34.5678, 2))
+    print(funct(lambda x: x ** 2, 8))
