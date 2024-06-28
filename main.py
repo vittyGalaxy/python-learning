@@ -1,41 +1,21 @@
 if __name__ == '__main__':
-    def controllo(nome):
-        if nome == "Vittorio":
-            return "Benvenuto Vittorio!"
+    def eta(num):
+        if num < 18:
+            print("Sei minorenne")
+        else:
+            print("Sei maggiorenne")
 
+    eta(15)
+    eta(19)
 
-    print(controllo("Vittorio"))
-    print(controllo("Luca"))
+    def anni(num):
+        if num < 10:
+            print("Sei un bambino")
+        elif num < 18:
+            print("Sei quasi maggiorenne")
+        else:
+            print("Sei maggiorenne")
 
-
-    def maggiore(x, y):
-        if x > y:
-            return x
-
-        if x < y:
-            return y
-
-        if x == y:
-            return "I numeri sono uguali"
-
-
-    print(maggiore(6, 4))
-    print(maggiore(3, 4))
-    print(maggiore(4, 4))
-
-
-    def functionAnd(x, y):
-        if (x > 3) and (y > 5):
-            return True
-
-
-    print(functionAnd(4, 6))
-    print(functionAnd(4, 5))
-
-
-    def functionOr(x, y):
-        if (x > 3) or (y > 5):
-            return True
-
-
-    print(functionOr(4, 5))
+    anni(16)
+    anni(9)
+    anni(20)
