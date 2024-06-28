@@ -1,9 +1,9 @@
 if __name__ == '__main__':
-    def fattoriale(x):
+    def sum(x):
         if x == 1:
             return 1
         else:
-            return x * fattoriale(x - 1)
+            return x + sum(x - 1)
 
 
-    print(fattoriale(5))
+    print(sum(5))
