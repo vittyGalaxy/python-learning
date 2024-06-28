@@ -1,36 +1,30 @@
 if __name__ == '__main__':
-    def divide(a, b):
-        try:
-            t = a / b
-            print(t)
+    def super_potenza(x, y):
+        if (x ** y) > 4000:
+            return True
 
-        except:
-            print("Attenzione e' successo un casino!")
+        else:
+            return False
 
-    divide(3,6)
-    divide(8,0)
 
-    def div(a, b):
-        try:
-            t = a / b
-            print(t)
+    def diviso_10(x):
+        if (x % 10) == 0:
+            return True
 
-        except ZeroDivisionError:
-            print("Attenzione non si puo' dividere per zero!")
+        else:
+            return False
 
-    div(6,3)
-    div(4,0)
+    def in_mezzo(num, alto, basso):
+        if (num > basso) and (num < alto):
+            return True
 
-    def divisione(a, b):
-        try:
-            t = a / b
-            print(t)
+        else:
+            return False
 
-        except TypeError:
-            print("Attenzione e' successo un casino!")
+    print(super_potenza(30, 5))
+    print(diviso_10(20))
+    print(in_mezzo(22, 33, 11))
 
-        finally:
-            print("programma terminato")
-
-    divisione(8, 4)
-    divisione(5, 0)
+    print(super_potenza(1, 2))
+    print(diviso_10(42))
+    print(in_mezzo(2000, 1, 10))
