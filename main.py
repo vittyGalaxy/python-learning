@@ -1,23 +1,26 @@
 if __name__ == '__main__':
-    import random
-    soldi = 100
+    lista = ["Vittorio", "Angelo", "Marco"]
 
-    def testa_o_croce(puntata, testa_croce):
-        lancio = random.randint(0, 1)
+    for nomi in lista:
+        print("Benvenuto/a!")
 
-        if lancio == 0:
-            if testa_croce == "Testa":
-                print("Testa, hai vinto! Il tuo saldo e;: " + str(soldi + puntata))
+    for i in range(3):
+        print("Benvenuto/a!")
 
-            else:
-                print("Testa, hai perso! Il tuo saldo e': " + str(soldi - puntata))
+    for nomi in lista:
+        print(nomi)
 
-        else:
-            if testa_croce == "Croce":
-                print("Croce, hai vinto! Il tuo saldo e': " + str(soldi + puntata))
+    for nomi in lista:
+        print(nomi)
+        if nomi == "Angelo":
+            break
 
-            else:
-                print("Croce, hai perso! Il tuo saldo e': " + str(soldi - puntata))
+    print("Programma terminato")
 
-    testa_o_croce(10, "Testa")
-    testa_o_croce(10, "Croce")
+    lista = [23, 34, 12, 19, 16]
+
+    for eta in lista:
+        if eta < 18:
+            continue
+
+        print(eta)
