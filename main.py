@@ -1,10 +1,9 @@
 if __name__ == '__main__':
 
-    lista = [[12, 34, 34], [2, 5, 67], [2, 4]]
-    total = 0
+    a = [155, 160, 153, 146, 149]
+    altezze = [alt for alt in a if alt > 150]
+    print(altezze)
 
-    for i in lista:
-        for e in i:
-            total += e
-
-    print(total)
+    a = [5, 2, 8, 12, 3]
+    b = [x * 2 for x in a]
+    print(b)
