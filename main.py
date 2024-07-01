@@ -1,22 +1,40 @@
 if __name__ == '__main__':
+    import random
 
-    lista = [8, 89, 34, 7, 29]
-    l = []
+    soldi = 100
 
-    t = len(lista)
 
-    print(lista)
-    print(l)
+    def testa_o_croce(puntata, testa_croce):
+        global soldi
+        lancio = random.randint(0, 1)
+        if lancio == 0:
+            if testa_croce == "Testa":
+                soldi += puntata
+                print("Testa, hai vinto! Il tuo saldo e: " + str(soldi) + ".")
 
-    while len(l) != t:
-        num = lista.pop()
-        l.append(num)
+            else:
+                soldi -= puntata
+                print("Testa, hai perso! Il tuo saldo e': " + str(soldi) + ".")
 
-    print(lista)
-    print(l)
+        else:
+            if testa_croce == "Croce":
+                soldi += puntata
+                print("Croce, hai vinto! Il tuo saldo e': " + str(soldi) + ".")
 
-    i = 0
+            else:
+                soldi -= puntata
+                print("Croce, hai perso! Il tuo saldo e': " + str(soldi) + ".")
 
-    while i < 10:
-        print(i)
-        i += 1
+
+    num = input("Scrivi 0 per smettere di giocare oppure un qualsiasi numero per continuare: ")
+    while (num != 0) and (soldi >= 0):
+        punta = input("Inserisci quanto punti: ")
+        t_c = input("Inserisci 'Testa' o 'Croce': ")
+
+        testa_o_croce(int(punta), str(t_c))
+
+        num = input("Scrivi 0 per smettere di giocare oppure un qualsiasi numero per continuare: ")
+        if soldi <= 0:
+            print("Hai finito i soldi")
+
+    print("Grazie per aver giocato!")
