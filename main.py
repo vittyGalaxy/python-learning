@@ -1,9 +1,12 @@
 if __name__ == '__main__':
 
-    a = [155, 160, 153, 146, 149]
-    altezze = [alt for alt in a if alt > 150]
-    print(altezze)
+    lettere = ["a", "b", "c", "d", "e"]
+    punti = ["1", "3", "2", "5", "2"]
+    a = zip(lettere, punti)
+    print(a)
 
-    a = [5, 2, 8, 12, 3]
-    b = [x * 2 for x in a]
-    print(b)
+    a = list(zip(lettere, punti))
+    print(a)
+
+    dictionary = {key: value for key, value in a}
+    print(dictionary)
