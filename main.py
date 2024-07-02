@@ -114,3 +114,48 @@ if __name__ == '__main__':
                 return False
             else:
                 return True
+
+    print("Benvenuto a Tris!")
+
+    while True:
+        la_tabella = [" "] * 10
+        lettera_giocatore, lettera_computer = letteraGiocatore()
+        turno = chi_inizia()
+        print("Il " + turno + " parte per primo.")
+        partita_corso = True
+
+        while partita_corso:
+            if turno == "giocatore":
+                disegna_tabella(la_tabella)
+                mossa = mossa_giocatore(la_tabella)
+                fai_la_mossa(la_tabella, lettera_giocatore, mossa)
+
+                if il_vincitore(la_tabella, lettera_giocatore):
+                    disegna_tabella(la_tabella)
+                    print("Evviva! Hai vinto")
+                    partita_corso = False
+                else:
+                    if tabella_completa(la_tabella):
+                        disegna_tabella(la_tabella)
+                        print("La partita e' finita in parita'.")
+                        break
+                    else:
+                        turno = "computer"
+            else:
+                mossa = mossa_computer(la_tabella, lettera_computer)
+                fai_la_mossa(la_tabella, lettera_computer, mossa)
+
+                if il_vincitore(la_tabella, lettera_computer):
+                    disegna_tabella(la_tabella)
+                    print("Il computer ti ha sconfitto. Hai perso!")
+                    partita_corso = False
+                else:
+                    if tabella_completa(la_tabella):
+                        disegna_tabella(la_tabella)
+                        print("La partita e' finita in parita'.")
+                        break
+                    else:
+                        turno = "giocatore"
+
+        if not gioca_ancora():
+            break
