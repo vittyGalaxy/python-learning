@@ -66,4 +66,4 @@ if __name__ == '__main__':
         while mossa not in "1 2 3 4 5 6 7 8 9".split() or not spazio_libero(tabella, int(mossa)):
             print("Quale sara' la tua prossima mossa? (1-9)")
             mossa = input()
-            return int(mossa)
+        return int(mossa)
