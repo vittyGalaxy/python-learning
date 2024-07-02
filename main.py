@@ -1,34 +1,28 @@
 if __name__ == '__main__':
     import random
-    from disegno import d_impiccato
 
-    liste_parole = ["hello", "world"]
-    scelta_parole = random.choice(liste_parole)
+    def disegna_tabella(tabella):
+        print("   |   |")
+        print(" " + tabella[7] + " | " + tabella[8] + " | " + tabella[9])
+        print("   |   |")
+        print("------------")
+        print("   |   |")
+        print(" " + tabella[4] + " | " + tabella[5] + " | " + tabella[6])
+        print("   |   |")
+        print("------------")
+        print("   |   |")
+        print(" " + tabella[1] + " | " + tabella[2] + " | " + tabella[3])
+        print("   |   |")
 
-    game_over = False
-    energia = len(d_impiccato) - 1
+    disegna_tabella([" "] * 10)
 
-    campo_gioco = []
-    for i in scelta_parole:
-        campo_gioco += '_'
+    def letteraGiocatore():
+        lettera = ""
+        while not(lettera == "X" or lettera == "O"):
+            print("Vuoi la X o la O?")
+            lettera = input().upper()
 
-    while not game_over:
-        indovina = input('indovina la lettera: ')
-        for posizione in range(len(scelta_parole)):
-            lettera = scelta_parole[posizione]
-            if lettera == indovina:
-                campo_gioco[posizione] = lettera
-        print(f"{' '.join(campo_gioco)}")
-
-        if indovina not in scelta_parole:
-            print(f"Hai tentato con la lettera {indovina}, non e' la lettera corretta. Hai perso una vita.")
-            energia -= 1
-            if energia == 0:
-                game_over = True
-                print(f"Hai Perso!. La parola corretta era {scelta_parole}")
-
-        if not '_' in campo_gioco:
-            game_over = True
-            print('Complimenti hai vinto!')
-
-        print(d_impiccato[energia])
+        if lettera == "X":
+            return ("X", "O")
+        else:
+            return ("O", "X")
