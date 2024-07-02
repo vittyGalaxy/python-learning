@@ -26,3 +26,13 @@ if __name__ == '__main__':
             return ("X", "O")
         else:
             return ("O", "X")
+
+    def chi_inizia():
+        if random.randint(0, 1) == 0
+            return "computer"
+        else:
+            return "giocatore"
+
+    def gioca_ancora():
+        print("Vuoi giocare ancora? (s = Si, n = No")
+        return input().lower().startswith("s")
