@@ -107,3 +107,10 @@ if __name__ == '__main__':
             return 5
 
         return fai_mossa_casuale_da_list(tabella, [2, 4, 6, 8])
+
+    def tabella_completa(tabella):
+        for i in range(1, 10):
+            if spazio_libero(tabella, i):
+                return False
+            else:
+                return True
