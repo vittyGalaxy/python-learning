@@ -51,3 +51,7 @@ if __name__ == '__main__':
                 (tabella[9] == lettera and tabella[6] == lettera and tabella[3] == lettera) or
                 (tabella[7] == lettera and tabella[5] == lettera and tabella[3] == lettera) or
                 (tabella[9] == lettera and tabella[5] == lettera and tabella[1] == lettera))
+
+    def spazio_libero(tabella, mossa):
+        return tabella[mossa] == " "
+
