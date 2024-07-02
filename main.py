@@ -15,6 +15,12 @@ if __name__ == '__main__':
     campo_gioco = []
     for i in scelta_parole:
         campo_gioco += '_'
+
+    for posizione in range(len(scelta_parole)):
+        lettera = scelta_parole[posizione]
+        if lettera == indovina:
+            campo_gioco[posizione] = lettera
+
     print(campo_gioco)
 
     print(scelta_parole)
