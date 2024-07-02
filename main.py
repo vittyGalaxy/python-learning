@@ -55,3 +55,8 @@ if __name__ == '__main__':
     def spazio_libero(tabella, mossa):
         return tabella[mossa] == " "
 
+    def crea_copia_tabella(tabella):
+        copiaTab = []
+        for i in tabella:
+            copiaTab.append(i)
+        return copiaTab
