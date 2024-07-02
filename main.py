@@ -36,3 +36,7 @@ if __name__ == '__main__':
     def gioca_ancora():
         print("Vuoi giocare ancora? (s = Si, n = No")
         return input().lower().startswith("s")
+
+
+    def fai_la_mossa(tabella, lettera, mossa):
+        tabella[mossa] = lettera
