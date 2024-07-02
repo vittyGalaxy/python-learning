@@ -67,3 +67,14 @@ if __name__ == '__main__':
             print("Quale sara' la tua prossima mossa? (1-9)")
             mossa = input()
         return int(mossa)
+
+    def fai_mossa_casuale_da_list(tabella, lista_mosse):
+        possibili_mosse = []
+        for i in lista_mosse:
+            if spazio_libero(tabella, i):
+                possibili_mosse.append(i)
+
+        if len(possibili_mosse) != 0:
+            return random.choice(possibili_mosse)
+        else:
+            return None
