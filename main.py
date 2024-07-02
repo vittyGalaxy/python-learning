@@ -78,3 +78,32 @@ if __name__ == '__main__':
             return random.choice(possibili_mosse)
         else:
             return None
+
+    def mossa_computer(tabella, lettera_computer):
+        if lettera_computer == "X":
+            lettera_giocatore = "O"
+        else:
+            lettera_giocatore = "X"
+
+        for i in range(1, 10):
+            copia = crea_copia_tabella(tabella)
+            if spazio_libero(copia, i):
+                fai_la_mossa(copia, lettera_computer, i)
+                if il_vincitore(copia, lettera_computer):
+                    return i
+
+        for i in range(1, 10):
+            copia = crea_copia_tabella(tabella)
+            if spazio_libero(copia, i):
+                fai_la_mossa(copia, lettera_giocatore, i)
+                if il_vincitore(copia, lettera_giocatore):
+                    return i
+
+        mossa = fai_mossa_casuale_da_list(tabella, [1, 3, 7, 9])
+        if mossa != None:
+            return mossa
+
+        if spazio_libero(tabella, 5):
+            return 5
+
+        return fai_mossa_casuale_da_list(tabella, [2, 4, 6, 8])
