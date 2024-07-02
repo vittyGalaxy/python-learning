@@ -28,7 +28,7 @@ if __name__ == '__main__':
             return ("O", "X")
 
     def chi_inizia():
-        if random.randint(0, 1) == 0
+        if random.randint(0, 1) == 0:
             return "computer"
         else:
             return "giocatore"
