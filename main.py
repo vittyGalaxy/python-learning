@@ -1,8 +1,8 @@
 if __name__ == '__main__':
     lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    somma = 0
+    moltiplicatore = 1
 
     for i in lista:
-        somma += i
+        moltiplicatore *= i
 
-    print("La somma e': " + str(somma))
+    print("Il prodotto e': " + str(moltiplicatore))
