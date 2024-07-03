@@ -1,14 +1,9 @@
 if __name__ == '__main__':
-    a = input("Inserisci un numero: ")
-    b = input("Inserisci un numero: ")
-    c = input("Inserisci un numero: ")
+    lista = [1, 3, 5, 3, 8, 5, 6]
+    mx = lista[0]
 
-    if a > b:
-        mx = a
-    else:
-        mx = b
+    for i in lista:
+        if mx < i:
+            mx = i
 
-    if mx > c:
-        print("Il maggiore e': " + str(mx))
-    else:
-        print("Il maggiore e': " + str(c))
+    print("Il maggiore e': " + str(mx))
