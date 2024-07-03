@@ -1,7 +1,24 @@
 if __name__ == '__main__':
-    def istogramma(lista):
-        for i in lista:
-            print("*" * lista)
+    def bubble_sort(lst):
 
-    lista_istogramma = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    istogramma(lista_istogramma)
+        scambio_necessario = True
+
+        while scambio_necessario:
+
+            scambio_necessario = False
+
+            for i in range(len(lst) - 1):
+
+                if lst[i] > lst[i + 1]:
+
+                    temp = lst[i]
+
+                    lst[i] = lst[i + 1]
+
+                    lst[i + 1] = temp
+
+                    bubble_sort(lst)
+
+        return lst
+
+    print(bubble_sort([34, 16, 2, 78, 4, 6, 1]))
