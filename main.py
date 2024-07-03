@@ -1,29 +1,24 @@
+def binary_search(search_list, search_item):
+    search_list.sort()
+
+    if len(search_list) == 0:
+        return False
+
+    midpoint = len(search_list) // 2
+
+    if search_list[midpoint] == search_item:
+        return True
+    elif search_item < search_list[midpoint]:
+        return binary_search(search_list[:midpoint], search_item)
+    else:
+        return binary_search(search_list[midpoint + 1:], search_item)
+
 if __name__ == '__main__':
-    def merge_sort(lst):
 
-        if len(lst) <= 1:
-            return lst
+    lst = [12, 64, 23, 3, 57, 19, 1, 17, 51, 62]
 
-        else:
-            punto_medio = len(lst) // 2
-
-            sinistra = merge_sort(lst[:punto_medio])
-            destra = merge_sort(lst[punto_medio:])
-
-            nuova_lista = []
-            while len(sinistra) and len(destra) > 0:
-
-                if sinistra[0] < destra[0]:
-                    nuova_lista.append(sinistra[0])
-                    del sinistra[0]
-
-                else:
-                    nuova_lista.append(destra[0])
-                    del destra[0]
-
-            nuova_lista.extend(sinistra)
-            nuova_lista.extend(destra)
-
-            return nuova_lista
-
-    print(merge_sort([2, 5, 3, 8, 6, 9, 1, 4, 7]))
+    print("12 e' nella lista: ", binary_search(lst, 12))
+    print("5 e' nella lista: ", binary_search(lst, 5))
+    print("64 e' nella lista: ", binary_search(lst, 64))
+    print("3 e' nella lista: ", binary_search(lst, 3))
+    print("7 e' nella lista: ", binary_search(lst, 7))
