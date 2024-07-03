@@ -1,9 +1,7 @@
 if __name__ == '__main__':
-    lista = [1, 3, 5, 3, 8, 5, 6]
-    mx = lista[0]
+    a = input("Scrivi una lettera: ")
 
-    for i in lista:
-        if mx < i:
-            mx = i
-
-    print("Il maggiore e': " + str(mx))
+    if (a == "a") or (a == "e") or (a == "i") or (a == "o") or (a == "u"):
+        print("E' una vocale")
+    else:
+        print("E' una consonante")
