@@ -1,10 +1,14 @@
 if __name__ == '__main__':
     a = input("Inserisci un numero: ")
     b = input("Inserisci un numero: ")
+    c = input("Inserisci un numero: ")
 
     if a > b:
-        print("Il maggiore e': " + str(a))
-    elif a < b:
-        print("Il maggiore e': " + str(b))
+        mx = a
     else:
-        print("I numeri sono uguali: " + str(a))
+        mx = b
+
+    if mx > c:
+        print("Il maggiore e': " + str(mx))
+    else:
+        print("Il maggiore e': " + str(c))
