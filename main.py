@@ -1,24 +1,10 @@
 if __name__ == '__main__':
-    def bubble_sort(lst):
+    def lunghezza(lista):
+        l = 0
+        for i in lista:
+            l += 1
 
-        scambio_necessario = True
+        return l
 
-        while scambio_necessario:
-
-            scambio_necessario = False
-
-            for i in range(len(lst) - 1):
-
-                if lst[i] > lst[i + 1]:
-
-                    temp = lst[i]
-
-                    lst[i] = lst[i + 1]
-
-                    lst[i + 1] = temp
-
-                    bubble_sort(lst)
-
-        return lst
-
-    print(bubble_sort([34, 16, 2, 78, 4, 6, 1]))
+    lis = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    print(lunghezza(lis))
