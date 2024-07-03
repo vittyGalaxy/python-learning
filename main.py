@@ -1,14 +1,13 @@
 if __name__ == '__main__':
-    def numero_contenuto(lista):
+    def dizionario(stringa):
+        dictionary = {}
         l = 0
-        lis = []
-        for i in lista:
-            for k in i:
-                l += 1
+        for i in stringa:
+            if i in dictionary:
+                dictionary[i] += 1
+            else:
+                dictionary[i] = 1
 
-            lis.append(l)
-            l = 0
+        return dictionary
 
-        return lis
-
-    print(numero_contenuto(["Hello", "World"]))
+    print(dizionario("hello"))
