@@ -1,7 +1,8 @@
 if __name__ == '__main__':
-    a = input("Scrivi una lettera: ")
+    lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    somma = 0
 
-    if (a == "a") or (a == "e") or (a == "i") or (a == "o") or (a == "u"):
-        print("E' una vocale")
-    else:
-        print("E' una consonante")
+    for i in lista:
+        somma += i
+
+    print("La somma e': " + str(somma))
