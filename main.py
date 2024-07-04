@@ -1,14 +1,17 @@
-class Aloud:
-    def __init__(self, phrase):
-        if type(phrase) == str:
-            print(phrase.upper())
-
+class MusicStore:
+    pass
 
 
 
 
 if __name__ == '__main__':
+    music_new_age = MusicStore()
+    music_rock = MusicStore()
 
-    phrase_1 = Aloud("ciao")
+    music_new_age.name_album = "Mandolinoage"
 
-    phrase_2 = Aloud("Python il TOP!")
+    music_rock.name_album = "Rocchettari"
+
+    print(music_new_age.name_album)
+
+    print(music_rock.name_album)
