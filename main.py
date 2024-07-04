@@ -1,12 +1,13 @@
-class Time:
-    sun = "Oggi e' una buona giornata!"
+class Dog:
+    dog_age_difference = 7
+
+    def explanation_time(self):
+        print("I cani hanno {} anni per ogni anno dell'essere umano".format(self.dog_age_difference))
 
 
 
 
 if __name__ == '__main__':
-    day_1 = Time()
-    day_2 = Time()
+    a = Dog()
+    a.explanation_time()
 
-    print(day_1.sun)
-    print(day_2.sun)
