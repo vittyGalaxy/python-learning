@@ -1,17 +1,7 @@
-class MusicStore:
-    pass
-
-
-
-
 if __name__ == '__main__':
-    music_new_age = MusicStore()
-    music_rock = MusicStore()
 
-    music_new_age.name_album = "Mandolinoage"
+    a = [4, 6, 1, 6, 8, 2, 9, 1, 0]
 
-    music_rock.name_album = "Rocchettari"
+    a.sort(reverse=True)
 
-    print(music_new_age.name_album)
-
-    print(music_rock.name_album)
+    print(a)
