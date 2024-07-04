@@ -1,14 +1,17 @@
-class Circle:
-    pi = 3.14
+class MusicStore:
+    pass
 
-    def area(self, radius):
-        return Circle.pi * (radius ** 2)
 
 
 
 if __name__ == '__main__':
-    circle = Circle()
+    music_new_age = MusicStore()
+    music_rock = MusicStore()
 
-    fountain = circle.area(30)
+    music_new_age.name_album = "Mandolinoage"
 
-    print(fountain)
+    music_rock.name_album = "Rocchettari"
+
+    print(music_new_age.name_album)
+
+    print(music_rock.name_album)
