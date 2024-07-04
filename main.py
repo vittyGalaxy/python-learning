@@ -1,9 +1,12 @@
-class Trial:
-    pass
+class Time:
+    sun = "Oggi e' una buona giornata!"
 
 
 
 
 if __name__ == '__main__':
-    trial_1 = Trial()
-    print(type(trial_1))
+    day_1 = Time()
+    day_2 = Time()
+
+    print(day_1.sun)
+    print(day_2.sun)
