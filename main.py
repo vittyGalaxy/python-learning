@@ -1,10 +1,12 @@
-class Name:
-    def __init__(self, name):
-        self.name = name
+class User:
+    admin = False
+    def __init__(self, name_user):
+        self.name_user = name_user
 
-    def __repr__(self):
-        return "Il mio nome e' " + self.name
+
+class Admin(User):
+    admin = True
+
 
 if __name__ == '__main__':
-    a = Name("Vittorio")
-    print(a)
+    print(issubclass(Admin, User))
