@@ -1,13 +1,13 @@
-def even_number(a):
+def word_length(a):
     result = []
 
     for i in a:
-        if (a[i] % 2) == 0:
-            result.append(i)
+        content = len(i)
+        result.append(content)
 
     return result
 
 if __name__ == '__main__':
 
-    b = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    print(even_number(b))
+    b = ["Hello", "World!"]
+    print(word_length(b))
