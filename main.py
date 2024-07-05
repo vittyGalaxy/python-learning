@@ -1,22 +1,18 @@
-class Color:
-    def __init__(self, red, green, blu):
-        self.red = red
-        self.green = green
-        self.blu = blu
-
-    def __repr__(self):
-        return "Colore in RGB = {red}, {green}, {blu}".format(red = self.red, green = self.green, blu = self.blu)
-
-    def __add__(self, other):
-        new_red = min(self.red + other.red, 255)
-        new_green = min(self.green + other.green, 255)
-        new_blu = min(self.blu + other.blu, 255)
-        return Color(new_red, new_green, new_blu)
-
+import csv
 
 if __name__ == '__main__':
-    red = Color(255, 0,0)
-    green = Color(0, 255,0)
+    elenco_nomi = [{"Nome": "Vittorio", "Cognome": "Tiozzo", "Email": "vittorio@gmail.com"}]
+    int_colonne = ["Nome", "Cognome", "Email"]
 
-    yellow = red + green
-    print(yellow)
+    # with open("file.csv", "w") as nomi_elenco:
+    #     scrittura = csv.DictWriter(nomi_elenco, fieldnames = int_colonne)
+    #
+    #     scrittura.writeheader()
+    #
+    #     for elemento in elenco_nomi:
+    #         scrittura.writerow(elemento)
+
+    with open("file.csv") as elenco:
+        content = elenco.read()
+
+        print(content)
