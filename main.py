@@ -1,15 +1,10 @@
+def sum(a):
+    s = 0
+    for i in a:
+        s += i
+    return s
+
 if __name__ == '__main__':
 
-    a = input("Inserisci cosa vuoi mettere nel file: ")
-    with open("file_copia.txt", "w") as b:
-        b = b.write(a)
-
-    with open("file_copia.txt") as content:
-        content = content.read()
-
-
-    with open("file_copia.txt", "w") as test:
-        test.write(content)
-
-    with open("file_copia.txt") as a:
-        print(a.read())
+    b = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    print(sum(b))
