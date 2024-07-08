@@ -1,12 +1,7 @@
-def max_number(a):
-    m = a[0]
-    for i in a:
-        if i > m:
-            m = i
-
-    return m
+class Persona:
+    def __init__(self, name, age, sesso):
+        print("Ciao, mi chiamo " + name + ", sono " + sesso + " e ho " + str(age) + " anni")
 
 if __name__ == '__main__':
 
-    b = [1, 5, 2, 22, 99, 100, 2, 4, 8]
-    print(max_number(b))
+    Persona("Vittorio", 17, "Maschio")
