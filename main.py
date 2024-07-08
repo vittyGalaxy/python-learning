@@ -1,26 +1,25 @@
-class Person:
-    def __init__(self, name, surname, age):
-        self.name = name
-        self.surname = surname
-        self.age = age
+class Rectangle:
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
 
-    def birthday(self):
-        self.age += 1
+    def getBase(self):
+        return self.base
+
+    def getHeight(self):
+        return self.height
+
+    def area(self):
+        return self.base * self.height
+
+    def perimeter(self):
+        return (self.base + self.height) * 2
 
     def __str__(self):
-        return "Si chiama " + self.name + " " + self.surname + " e ha " + str(self.age) + " anni"
-
+        return "Il perimetro e' " + str(Rectangle.perimeter(self)) + " e l'area e' " + str(Rectangle.area(self))
 
 if __name__ == '__main__':
-
-    p1 = Person("Vittorio", "Tiozzo", 17)
-    p2 = Person("Marco", "Bianco", 11)
-
-    print(p1)
-    print(p2)
-
-    p1.birthday()
-    p2.birthday()
-
-    print(p1)
-    print(p2)
+    r = Rectangle(2, 3)
+    print(Rectangle(2, 3))
+    print(r.getBase())
+    print(r.getHeight())
