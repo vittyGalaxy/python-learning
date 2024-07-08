@@ -1,14 +1,26 @@
-class Product:
-    def __init__(self, name, price, amount):
+class Person:
+    def __init__(self, name, surname, age):
         self.name = name
-        self.price = price
-        self.amount = amount
+        self.surname = surname
+        self.age = age
 
-    def print_product(self):
-        print("Il nome del prodotto e' " + self.name + " ce ne sono " + str(self.amount) + " e costa " + str(self.price) + " euro")
+    def birthday(self):
+        self.age += 1
+
+    def __str__(self):
+        return "Si chiama " + self.name + " " + self.surname + " e ha " + str(self.age) + " anni"
 
 
 if __name__ == '__main__':
 
-    p = Product("Cereali", 10, 3)
-    p.print_product()
+    p1 = Person("Vittorio", "Tiozzo", 17)
+    p2 = Person("Marco", "Bianco", 11)
+
+    print(p1)
+    print(p2)
+
+    p1.birthday()
+    p2.birthday()
+
+    print(p1)
+    print(p2)
