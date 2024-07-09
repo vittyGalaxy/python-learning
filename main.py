@@ -1,20 +1,20 @@
-class Circle:
-    def __init__(self, radius):
-        self.radius = radius
+class Square:
+    def __init__(self, base):
+        self.base = base
 
-    def getRadius(self):
-        return self.radius
+    def getBase(self):
+        return self.base
 
     def area(self):
-        return 3.14 * (self.radius ** 2)
+        return self.base * self.getBase()
 
-    def circumference(self):
-        return 2 * self.radius * 3.14
+    def perimeter(self):
+        return self.base * 4
 
     def __str__(self):
-        return "La circonferenza e' " + str(Circle.circumference(self)) + " e l'area e' " + str(Circle.area(self))
+        return "Il perimetro e' " + str(Square.perimeter(self)) + " e l'area e' " + str(Square.area(self))
 
 if __name__ == '__main__':
-    r = Circle(5.0)
-    print(Circle(5.0))
-    print(r.getRadius())
+    s = Square(5.0)
+    print(Square(5.0))
+    print(s.getBase())
