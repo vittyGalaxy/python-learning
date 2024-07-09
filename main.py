@@ -1,25 +1,20 @@
-class Rectangle:
-    def __init__(self, base, height):
-        self.base = base
-        self.height = height
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
 
-    def getBase(self):
-        return self.base
-
-    def getHeight(self):
-        return self.height
+    def getRadius(self):
+        return self.radius
 
     def area(self):
-        return self.base * self.height
+        return 3.14 * (self.radius ** 2)
 
-    def perimeter(self):
-        return (self.base + self.height) * 2
+    def circumference(self):
+        return 2 * self.radius * 3.14
 
     def __str__(self):
-        return "Il perimetro e' " + str(Rectangle.perimeter(self)) + " e l'area e' " + str(Rectangle.area(self))
+        return "La circonferenza e' " + str(Circle.circumference(self)) + " e l'area e' " + str(Circle.area(self))
 
 if __name__ == '__main__':
-    r = Rectangle(2, 3)
-    print(Rectangle(2, 3))
-    print(r.getBase())
-    print(r.getHeight())
+    r = Circle(5.0)
+    print(Circle(5.0))
+    print(r.getRadius())
