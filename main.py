@@ -1,38 +1,22 @@
-class Employee:
-    def __init__(self, name, surname, freshman, salary):
+class Student:
+    def __init__(self, name, score):
         self.name = name
-        self.surname = surname
-        self.freshman = freshman
-        self.salary = salary
+        self.score = score
 
     def getName(self):
         return self.name
 
-    def getSurname(self):
-        return self.surname
+    def getScore(self):
+        return self.score
 
-    def getFreshman(self):
-        return self.freshman
-
-    def getSalary(self):
-        return self.salary
-
-    def increase_salary(self):
-        self.salary += ((self.salary * 10) / 100)
-
-    def print_details(self):
-        print(f"Impiegato: {self.name} {self.surname}, matricola {self.freshman}, stipendio{self.salary:.2f} euro")
-
+    def __str__(self):
+        return f"Nome: {self.name}, Punteggio: {self.score}"
 
 
 
 
 if __name__ == '__main__':
-    e = Employee("Vittorio", "Tiozzo", 12345, 3000)
-    print(e.getName())
-    print(e.getSurname())
-    print(e.getFreshman())
-    print(e.getSalary())
-    e.print_details()
-    e.increase_salary()
-    e.print_details()
+    s = Student("Vittorio", 9)
+    print(s.getName())
+    print(s.getScore())
+    print(Student("Vittorio", 9))
