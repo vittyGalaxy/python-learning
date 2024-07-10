@@ -1,8 +1,9 @@
-class Student:
-    def __init__(self, name, surname, vote):
+class Employee:
+    def __init__(self, name, surname, freshman, salary):
         self.name = name
         self.surname = surname
-        self.vote = vote
+        self.freshman = freshman
+        self.salary = salary
 
     def getName(self):
         return self.name
@@ -10,18 +11,28 @@ class Student:
     def getSurname(self):
         return self.surname
 
-    def getVote(self):
-        return self.vote
+    def getFreshman(self):
+        return self.freshman
 
-    def calculate_average(self):
-        average = sum(self.vote) / len(self.getVote())
-        return average
+    def getSalary(self):
+        return self.salary
+
+    def increase_salary(self):
+        self.salary += ((self.salary * 10) / 100)
+
+    def print_details(self):
+        print(f"Impiegato: {self.name} {self.surname}, matricola {self.freshman}, stipendio{self.salary:.2f} euro")
+
+
 
 
 
 if __name__ == '__main__':
-    s = Student("Vittorio", "Tiozzo", [6, 7, 8, 9, 10])
-    print(s.getName())
-    print(s.getSurname())
-    print(s.getVote())
-    print(s.calculate_average())
+    e = Employee("Vittorio", "Tiozzo", 12345, 3000)
+    print(e.getName())
+    print(e.getSurname())
+    print(e.getFreshman())
+    print(e.getSalary())
+    e.print_details()
+    e.increase_salary()
+    e.print_details()
