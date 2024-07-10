@@ -1,27 +1,34 @@
-class Film:
-    def __init__(self, title, year, genre):
+class Book:
+    def __init__(self, title, author):
         self.title = title
-        self.year = year
-        self.genre = genre
+        self.author = author
 
     def getTitle(self):
         return self.title
 
-    def getYear(self):
-        return self.year
+    def getAuthor(self):
+        return self.author
 
-    def getGenre(self):
-        return self.genre
+    def update_author(self, new_author):
+        self.author = new_author
+        print(f"Autore aggiornato a '{self.author}'")
+        return self.author
 
     def __str__(self):
-        return f"Titolo: {self.title}, Anno: {self.year}, Genere: {self.genre}"
+        return f"Titolo: {self.title}, Autore: {self.author}"
 
 
-
+def main():
+    t = input("Inserisci il titolo: ")
+    a = input("Inserisci l'autore: ")
+    b = Book(str(t), str(a))
+    print(b.getTitle())
+    print(b.getAuthor())
+    print(Book(str(t), str(a)))
+    a = input("Inserisci un nuovo autore: ")
+    print(b.update_author(a))
+    print(b.getAuthor())
+    print(Book(str(t), str(a)))
 
 if __name__ == '__main__':
-    f = Film("Inception", 2010,"Fantascienza")
-    print(f.getTitle())
-    print(f.getYear())
-    print(f.getGenre())
-    print(Film("Inception", 2010,"Fantascienza"))
+    main()
