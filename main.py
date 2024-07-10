@@ -1,22 +1,27 @@
-class Student:
-    def __init__(self, name, score):
-        self.name = name
-        self.score = score
+class Film:
+    def __init__(self, title, year, genre):
+        self.title = title
+        self.year = year
+        self.genre = genre
 
-    def getName(self):
-        return self.name
+    def getTitle(self):
+        return self.title
 
-    def getScore(self):
-        return self.score
+    def getYear(self):
+        return self.year
+
+    def getGenre(self):
+        return self.genre
 
     def __str__(self):
-        return f"Nome: {self.name}, Punteggio: {self.score}"
+        return f"Titolo: {self.title}, Anno: {self.year}, Genere: {self.genre}"
 
 
 
 
 if __name__ == '__main__':
-    s = Student("Vittorio", 9)
-    print(s.getName())
-    print(s.getScore())
-    print(Student("Vittorio", 9))
+    f = Film("Inception", 2010,"Fantascienza")
+    print(f.getTitle())
+    print(f.getYear())
+    print(f.getGenre())
+    print(Film("Inception", 2010,"Fantascienza"))
