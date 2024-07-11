@@ -1,27 +1,35 @@
-class GeometricFigure:
-    def __init__(self, name):
+class Person:
+    def __init__(self, name, age):
         self.name = name
+        self.age = age
 
     def getName(self):
         return self.name
 
-class Rectangle(GeometricFigure):
-    def __init__(self, name, base, height):
-        super().__init__(name)
-        self.base = base
-        self.height = height
+    def getAge(self):
+        return self.age
 
-    def area(self):
-        return self.base * self.height
+    def greet(self):
+        print(f"Ciao, mi chiamo {self.name} e ho {self.age} anni")
+
+class Employee(Person):
+    def __init__(self, name, age, agency, position):
+        super().__init__(name, age)
+        self.agency = agency
+        self.position = position
+
+    def presents(self):
+        print(f"Sono {self.name}, ho {self.age} anni, lavoro per {self.agency} come {self.position}")
 
 
 
 def main():
-    f = GeometricFigure("Rettangolo")
-    print(f.getName())
-    r = Rectangle("Rettangolo", 5, 3)
-    print(r.getName())
-    print(f"Area: {r.area()}")
+    p = Person("Luca", 20)
+    p.greet()
+
+    e = Employee("Marco", 28, "TechCorp", "Sviluppatore")
+    e.greet()
+    e.presents()
 
 
 
