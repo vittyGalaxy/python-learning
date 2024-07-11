@@ -1,46 +1,38 @@
-class BankAccount:
-    def __init__(self, holder, balance = 0):
-        self.holder = holder
-        self.balance = balance
-    def getHolder(self):
-        return self.holder
+class StudentRegister:
+    def __init__(self):
+        self.students = []
 
-    def getBalance(self):
-        return self.balance
+    def getStudents(self):
+        if self.students:
+            return self.students
+        else:
+            return "Il registro e' vuoto"
 
-    def deposit(self, amount):
-        if amount > 0:
-            self.balance += amount
-            print(f"Hai depositato {amount} euro, Il saldo attuale e': {self.balance} euro")
+    def add_student(self, name):
+        self.students.append(name)
+        print(f"Studente {name} aggiunto al registro")
+
+    def search_student(self, name):
+        if name in self.students:
+            print(f"Lo studente {name} e' presente nel registro.")
 
         else:
-            print("L'importo del deposito deve essere positivo.")
+            print(f"Lo studente {name} non e' presente nel registro.")
 
-    def withdraw(self, amount):
-        if amount > 0:
-            if self.balance >= amount:
-                self.balance -= amount
-                print(f"Hai prelevato {amount} euro, Il saldo attuale e':{self.balance} euro")
-
-            else:
-                print("Saldo insufficiente per il prelievo")
-
-        else:
-            print("L'importo del prelievo deve essere positivo.")
 
 
 def main():
-    b = BankAccount("Vittorio Tiozzo")
-    print(b.getHolder())
-    print(b.getBalance())
-    print(BankAccount("Vittorio Tiozzo"))
-    b.deposit(100)
-    b.withdraw(50)
-    print(b.getBalance())
+    s = StudentRegister()
+    print(s.getStudents())
+    s.search_student("Vittorio")
 
-    b.withdraw(100)
-    b.withdraw(-3)
-    b.deposit(-5)
+    s.add_student("Vittorio")
+    s.search_student("Vittorio")
+    s.add_student("Luca")
+    s.search_student("Vittorio")
+    print(s.getStudents())
+
+
 
 
 if __name__ == '__main__':
