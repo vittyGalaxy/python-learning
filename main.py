@@ -1,37 +1,27 @@
-class StudentRegister:
-    def __init__(self):
-        self.students = []
+class GeometricFigure:
+    def __init__(self, name):
+        self.name = name
 
-    def getStudents(self):
-        if self.students:
-            return self.students
-        else:
-            return "Il registro e' vuoto"
+    def getName(self):
+        return self.name
 
-    def add_student(self, name):
-        self.students.append(name)
-        print(f"Studente {name} aggiunto al registro")
+class Rectangle(GeometricFigure):
+    def __init__(self, name, base, height):
+        super().__init__(name)
+        self.base = base
+        self.height = height
 
-    def search_student(self, name):
-        if name in self.students:
-            print(f"Lo studente {name} e' presente nel registro.")
-
-        else:
-            print(f"Lo studente {name} non e' presente nel registro.")
+    def area(self):
+        return self.base * self.height
 
 
 
 def main():
-    s = StudentRegister()
-    print(s.getStudents())
-    s.search_student("Vittorio")
-
-    s.add_student("Vittorio")
-    s.search_student("Vittorio")
-    s.add_student("Luca")
-    s.search_student("Vittorio")
-    print(s.getStudents())
-
+    f = GeometricFigure("Rettangolo")
+    print(f.getName())
+    r = Rectangle("Rettangolo", 5, 3)
+    print(r.getName())
+    print(f"Area: {r.area()}")
 
 
 
