@@ -1,4 +1,4 @@
-class Computer:
+class MeansOfTransport:
     def __init__(self, brand, model):
         self.brand = brand
         self.model = model
@@ -13,46 +13,46 @@ class Computer:
         print(f"Marca: {self.brand}, modello: {self.model}")
 
 
-class Laptop(Computer):
-    def __init__(self, brand, model, weight):
+class Bicycle(MeansOfTransport):
+    def __init__(self, brand, model, type_of_bike):
         super().__init__(brand, model)
-        self.weight = weight
+        self.type_of_bike = type_of_bike
 
-    def get_weight(self):
-        return self.weight
+    def get_type_of_bike(self):
+        return self.type_of_bike
 
     def show_info(self):
         super().show_info()
-        print(f"Peso: {self.weight}")
+        print(f"tipo di bici: {self.type_of_bike}")
 
 
-class Desktop(Computer):
-    def __init__(self, brand, model, tipo_case):
+class Car(MeansOfTransport):
+    def __init__(self, brand, model, type_of_fuel):
         super().__init__(brand, model)
-        self.tipo_case = tipo_case
+        self.type_of_fuel = type_of_fuel
 
-    def get_tipo_case(self):
-        return self.tipo_case
+    def get_type_of_fuel(self):
+        return self.type_of_fuel
 
     def show_info(self):
         super().show_info()
-        print(f"Tipo di case: {self.tipo_case}")
+        print(f"Tipo di case: {self.type_of_fuel}")
 
 
 def main():
-    l = Laptop("Dell", "XPS 13", 1.2)
-    d = Desktop("HP", "Omen 30L", "Tower")
-    l.show_info()
+    b = Bicycle("Giant", "Defy 3", "Bici da corsa")
+    c = Car("Fiat", "Panda", "Benzina")
+    b.show_info()
     print()
-    d.show_info()
+    c.show_info()
 
     print()
-    print(l.get_brand())
-    print(l.get_model())
-    print(l.get_weight())
-    print(d.get_brand())
-    print(d.get_model())
-    print(d.get_tipo_case())
+    print(b.get_brand())
+    print(b.get_model())
+    print(b.get_type_of_bike())
+    print(c.get_brand())
+    print(c.get_model())
+    print(c.get_type_of_fuel())
 
 
 if __name__ == '__main__':
