@@ -1,56 +1,58 @@
-class HouseholdAppliance:
-    def __init__(self, brand, model):
-        self.brand = brand
-        self.model = model
+class MusicalInstrument:
+    def __init__(self, name, typee):
+        self.name = name
+        self.typee = typee
 
-    def get_brand(self):
-        return self.brand
+    def get_name(self):
+        return self.name
 
-    def get_model(self):
-        return self.model
-
-    def show_info(self):
-        print(f"Marca: {self.brand}, Modello: {self.model}")
-
-
-class Refrigerator(HouseholdAppliance):
-    def __init__(self, brand, model, capacity):
-        super().__init__(brand, model)
-        self.capacity = capacity
-
-    def get_capacity(self):
-        return self.capacity
+    def get_typee(self):
+        return self.typee
 
     def show_info(self):
-        super().show_info()
-        print(f"Capacita': {self.capacity} litri")
+        print(f"Nome: {self.name}, tipo: {self.typee}")
 
 
-class WashingMachine(HouseholdAppliance):
-    def __init__(self, brand, model, weight):
-        super().__init__(brand, model)
-        self.weight = weight
+class Guitar(MusicalInstrument):
+    def __init__(self, name, ropes):
+        super().__init__(name, "A corda")
+        self.ropes = ropes
 
-    def get_weight(self):
-        return self.weight
+    def get_ropes(self):
+        return self.ropes
 
     def show_info(self):
         super().show_info()
-        print(f"Carico: {self.weight} kg")
+        print(f"Corde': {self.ropes}")
+
+
+class Piano(MusicalInstrument):
+    def __init__(self, name, number_keys):
+        super().__init__(name, "A tastiera")
+        self.number_keys = number_keys
+
+    def get_number_keys(self):
+        return self.number_keys
+
+    def show_info(self):
+        super().show_info()
+        print(f"Numero tasti: {self.number_keys}")
 
 
 def main():
-    f = Refrigerator("Samsung", "RT38K5982SL", 384)
-    w = WashingMachine("LG", "F4WV910P2", 10.5)
-    f.show_info()
+    g = Guitar("Fender Stratocaster", 6)
+    p = Piano("Yamaha U3", 88)
+    g.show_info()
     print()
-    w.show_info()
-    print(f.get_brand())
-    print(f.get_model())
-    print(f.get_capacity())
-    print(w.get_brand())
-    print(w.get_model())
-    print(w.get_weight())
+    p.show_info()
+
+    print()
+    print(g.get_name())
+    print(g.get_typee())
+    print(g.get_ropes())
+    print(p.get_name())
+    print(p.get_typee())
+    print(p.get_number_keys())
 
 
 if __name__ == '__main__':
