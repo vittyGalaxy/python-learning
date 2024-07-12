@@ -21,7 +21,7 @@ class AccountStandard(Account):
 
 class AdministratorAccount(Account):
     def __init__(self, username, email, privileges):
-        super().__init__(self, username, email)
+        super().__init__(username, email)
         self.privileges = privileges
 
     def show_info(self):
