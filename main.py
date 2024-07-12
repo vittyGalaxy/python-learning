@@ -1,25 +1,30 @@
-class Animal:
-    def __init__(self, animals):
-        self.animals = animals
+class Student:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+        self.vote = []
 
-    def get_animal(self):
-        return self.animals
+    def get_vote(self):
+        return self.vote
 
-    def recognition(self):
-        if self.animals == "gatto" or self.animals == "cane":
-            print("Questo e' un ")
-            return self.animals
-        else:
-            return print("Non riconosco questo animale")
+    def add_vote(self, v):
+        self.vote.append(v)
+
+    def calculate_average(self):
+        average = sum(self.vote) / len(self.get_vote())
+        return average
 
 
 def main():
-    a = Animal("gatto")
-    print(a.recognition())
-    print(a.get_animal())
-    a = Animal("cane")
-    print(a.recognition())
-    print(a.get_animal())
+    s = Student("Vittorio", "Tiozzo")
+    print(s.get_vote())
+    s.add_vote(6)
+    s.add_vote(7)
+    s.add_vote(8)
+    s.add_vote(9)
+    s.add_vote(10)
+    print(s.get_vote())
+    print(s.calculate_average())
 
 
 
