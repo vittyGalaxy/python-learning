@@ -1,58 +1,58 @@
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+class Computer:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
 
-    def get_name(self):
-        return self.name
+    def get_brand(self):
+        return self.brand
 
-    def get_age(self):
-        return self.age
-
-    def show_info(self):
-        print(f"Nome: {self.name}, eta': {self.age}")
-
-
-class Teacher(Person):
-    def __init__(self, name, age, subject):
-        super().__init__(name, age)
-        self.subject = subject
-
-    def get_subject(self):
-        return self.subject
+    def get_model(self):
+        return self.model
 
     def show_info(self):
-        super().show_info()
-        print(f"Materia': {self.subject}")
+        print(f"Marca: {self.brand}, modello: {self.model}")
 
 
-class Student(Person):
-    def __init__(self, name, age, classroom):
-        super().__init__(name, age)
-        self.classroom = classroom
+class Laptop(Computer):
+    def __init__(self, brand, model, weight):
+        super().__init__(brand, model)
+        self.weight = weight
 
-    def get_classroom(self):
-        return self.classroom
+    def get_weight(self):
+        return self.weight
 
     def show_info(self):
         super().show_info()
-        print(f"classe: {self.classroom}")
+        print(f"Peso: {self.weight}")
+
+
+class Desktop(Computer):
+    def __init__(self, brand, model, tipo_case):
+        super().__init__(brand, model)
+        self.tipo_case = tipo_case
+
+    def get_tipo_case(self):
+        return self.tipo_case
+
+    def show_info(self):
+        super().show_info()
+        print(f"Tipo di case: {self.tipo_case}")
 
 
 def main():
-    t = Teacher("Giovanni Rossi", 40, "Matematica")
-    s = Student("Anna Bianchi", 16, "3A")
-    t.show_info()
+    l = Laptop("Dell", "XPS 13", 1.2)
+    d = Desktop("HP", "Omen 30L", "Tower")
+    l.show_info()
     print()
-    s.show_info()
+    d.show_info()
 
     print()
-    print(t.get_name())
-    print(t.get_age())
-    print(t.get_subject())
-    print(s.get_name())
-    print(s.get_age())
-    print(s.get_classroom())
+    print(l.get_brand())
+    print(l.get_model())
+    print(l.get_weight())
+    print(d.get_brand())
+    print(d.get_model())
+    print(d.get_tipo_case())
 
 
 if __name__ == '__main__':
