@@ -1,58 +1,58 @@
-class MusicalInstrument:
-    def __init__(self, name, typee):
+class Person:
+    def __init__(self, name, age):
         self.name = name
-        self.typee = typee
+        self.age = age
 
     def get_name(self):
         return self.name
 
-    def get_typee(self):
-        return self.typee
+    def get_age(self):
+        return self.age
 
     def show_info(self):
-        print(f"Nome: {self.name}, tipo: {self.typee}")
+        print(f"Nome: {self.name}, eta': {self.age}")
 
 
-class Guitar(MusicalInstrument):
-    def __init__(self, name, ropes):
-        super().__init__(name, "A corda")
-        self.ropes = ropes
+class Teacher(Person):
+    def __init__(self, name, age, subject):
+        super().__init__(name, age)
+        self.subject = subject
 
-    def get_ropes(self):
-        return self.ropes
-
-    def show_info(self):
-        super().show_info()
-        print(f"Corde': {self.ropes}")
-
-
-class Piano(MusicalInstrument):
-    def __init__(self, name, number_keys):
-        super().__init__(name, "A tastiera")
-        self.number_keys = number_keys
-
-    def get_number_keys(self):
-        return self.number_keys
+    def get_subject(self):
+        return self.subject
 
     def show_info(self):
         super().show_info()
-        print(f"Numero tasti: {self.number_keys}")
+        print(f"Materia': {self.subject}")
+
+
+class Student(Person):
+    def __init__(self, name, age, classroom):
+        super().__init__(name, age)
+        self.classroom = classroom
+
+    def get_classroom(self):
+        return self.classroom
+
+    def show_info(self):
+        super().show_info()
+        print(f"classe: {self.classroom}")
 
 
 def main():
-    g = Guitar("Fender Stratocaster", 6)
-    p = Piano("Yamaha U3", 88)
-    g.show_info()
+    t = Teacher("Giovanni Rossi", 40, "Matematica")
+    s = Student("Anna Bianchi", 16, "3A")
+    t.show_info()
     print()
-    p.show_info()
+    s.show_info()
 
     print()
-    print(g.get_name())
-    print(g.get_typee())
-    print(g.get_ropes())
-    print(p.get_name())
-    print(p.get_typee())
-    print(p.get_number_keys())
+    print(t.get_name())
+    print(t.get_age())
+    print(t.get_subject())
+    print(s.get_name())
+    print(s.get_age())
+    print(s.get_classroom())
 
 
 if __name__ == '__main__':
