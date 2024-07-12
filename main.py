@@ -1,35 +1,25 @@
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+class Animal:
+    def __init__(self, animals):
+        self.animals = animals
 
-    def getName(self):
-        return self.name
+    def get_animal(self):
+        return self.animals
 
-    def getAge(self):
-        return self.age
-
-    def greet(self):
-        print(f"Ciao, mi chiamo {self.name} e ho {self.age} anni")
-
-class Employee(Person):
-    def __init__(self, name, age, agency, position):
-        super().__init__(name, age)
-        self.agency = agency
-        self.position = position
-
-    def presents(self):
-        print(f"Sono {self.name}, ho {self.age} anni, lavoro per {self.agency} come {self.position}")
-
+    def recognition(self):
+        if self.animals == "gatto" or self.animals == "cane":
+            print("Questo e' un ")
+            return self.animals
+        else:
+            return print("Non riconosco questo animale")
 
 
 def main():
-    p = Person("Luca", 20)
-    p.greet()
-
-    e = Employee("Marco", 28, "TechCorp", "Sviluppatore")
-    e.greet()
-    e.presents()
+    a = Animal("gatto")
+    print(a.recognition())
+    print(a.get_animal())
+    a = Animal("cane")
+    print(a.recognition())
+    print(a.get_animal())
 
 
 
