@@ -4,7 +4,7 @@ class Game:
         self.minimum_age = minimum_age
 
     def get_name(self):
-        return self.minimum_age
+        return self.name
 
     def get_minimum_age(self):
         return self.minimum_age
