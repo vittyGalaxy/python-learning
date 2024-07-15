@@ -10,7 +10,7 @@ class Media:
         return self.publication_year
 
     def show_info(self):
-        print(f"Titolo: {self.publication_year}, anno di pubblicazione: {self.publication_year}")
+        print(f"Titolo: {self.title}, anno di pubblicazione: {self.publication_year}")
 
 
 class Book(Media):
