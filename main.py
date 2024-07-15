@@ -1,8 +1,8 @@
-class Device:
-    def __init__(self, brand, model, year):
+class MusicalInstrument:
+    def __init__(self, brand, model, year_of_manufacture):
         self.brand = brand
         self.model = model
-        self.year = year
+        self.year_of_manufacture = year_of_manufacture
 
     def get_brand(self):
         return self.brand
@@ -10,66 +10,57 @@ class Device:
     def get_model(self):
         return self.model
 
-    def get_year(self):
-        return self.year
+    def get_year_of_manufacture(self):
+        return self.year_of_manufacture
 
     def show_info(self):
-        print(f"marca: {self.brand}, modello: {self.model}, anno: {self.year}")
+        print(f"marca: {self.brand}, modello: {self.model}, anno di fabbricazione: {self.year_of_manufacture}")
 
 
-class Laptop(Device):
-    def __init__(self,  brand, model, year, ram, processor):
-        super().__init__( brand, model, year)
-        self.ram = ram
-        self.processor = processor
+class StringInstrument(MusicalInstrument):
+    def __init__(self,  brand, model, year_of_manufacture, string_number):
+        super().__init__(brand, model, year_of_manufacture)
+        self.string_number = string_number
 
-    def get_ram(self):
-        return self.ram
-
-    def get_processor(self):
-        return self.processor
+    def get_string_number(self):
+        return self.string_number
 
     def show_info(self):
         super().show_info()
-        print(f"ram: {self.ram}, processore: {self.processor}")
+        print(f"numero corde: {self.string_number}")
 
 
-class Smartphone(Device):
-    def __init__(self, brand, model, year, internal_memory, number_of_cameras):
-        super().__init__(brand, model, year)
-        self.internal_memory = internal_memory
-        self.number_of_cameras = number_of_cameras
+class WindInstrument(MusicalInstrument):
+    def __init__(self, brand, model, year_of_manufacture, material):
+        super().__init__(brand, model, year_of_manufacture)
+        self.material = material
 
-    def get_internal_memory(self):
-        return self.internal_memory
-
-    def get_number_of_cameras(self):
-        return self.number_of_cameras
+    def get_material(self):
+        return self.material
 
     def show_info(self):
         super().show_info()
-        print(f"memoria interna: {self.internal_memory}, numero fotocamere: {self.number_of_cameras}")
+        print(f"materiale: {self.material}")
 
 
 def main():
-    l = Laptop("Apple", "MacBook Pro", 2021, 16, "M1")
-    s = Smartphone("Samsung", "Galaxy S21", 2021, 128, 4)
-    l.show_info()
-    print()
+    s = StringInstrument("Chitarra", "Fender", 2019, 6)
+    w = WindInstrument("Flauto", "Yamaha", 2020, "Legno")
+
     s.show_info()
     print()
-
-    print(l.get_brand())
-    print(l.get_model())
-    print(l.get_year())
-    print(l.get_processor())
-    print(l.get_ram())
+    w.show_info()
+    print()
 
     print(s.get_brand())
     print(s.get_model())
-    print(s.get_year())
-    print(s.get_internal_memory())
-    print(s.get_number_of_cameras())
+    print(s.get_year_of_manufacture())
+    print(s.get_string_number())
+
+    print(w.get_brand())
+    print(w.get_model())
+    print(w.get_year_of_manufacture())
+    print(w.get_material())
 
 
 if __name__ == '__main__':
