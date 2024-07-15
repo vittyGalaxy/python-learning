@@ -1,57 +1,69 @@
-class MeansOfTransport:
-    def __init__(self, brand, model):
-        self.brand = brand
-        self.model = model
+class Animal:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-    def get_brand(self):
-        return self.brand
+    def get_name(self):
+        return self.name
 
-    def get_model(self):
-        return self.model
-
-    def show_info(self):
-        print(f"Marca: {self.brand}, modello: {self.model}")
-
-
-class Bicycle(MeansOfTransport):
-    def __init__(self, brand, model, type_of_bike):
-        super().__init__(brand, model)
-        self.type_of_bike = type_of_bike
-
-    def get_type_of_bike(self):
-        return self.type_of_bike
+    def get_age(self):
+        return self.age
 
     def show_info(self):
-        super().show_info()
-        print(f"tipo di bici: {self.type_of_bike}")
+        print(f"Nome: {self.name}, eta': {self.age}")
 
 
-class Car(MeansOfTransport):
-    def __init__(self, brand, model, type_of_fuel):
-        super().__init__(brand, model)
-        self.type_of_fuel = type_of_fuel
+class Dog(Animal):
+    def __init__(self, name, age, race):
+        super().__init__(name, age)
+        self.race = race
 
-    def get_type_of_fuel(self):
-        return self.type_of_fuel
+    def get_race(self):
+        return self.race
 
     def show_info(self):
         super().show_info()
-        print(f"Tipo di carburante: {self.type_of_fuel}")
+        print(f"Razza: {self.race}")
+
+
+class Cat(Animal):
+    def __init__(self, name, age, color):
+        super().__init__(name, age)
+        self.color = color
+
+    def get_color(self):
+        return self.color
+
+    def show_info(self):
+        super().show_info()
+        print(f"Colore: {self.color}")
 
 
 def main():
-    b = Bicycle("Giant", "Defy 3", "Bici da corsa")
-    c = Car("Fiat", "Panda", "Benzina")
-    b.show_info()
+    d1 = Dog("Fido", 3, "Labrador")
+    d2 = Dog("Rex", 5, "Pastore Tedesco")
+    c1 = Cat("Micia", 2, "Bianco")
+    c2 = Cat("Luna", 4, "Nero")
+    d1.show_info()
     print()
-    c.show_info()
+    d2.show_info()
+    print()
+    c1.show_info()
+    print()
+    c2.show_info()
 
-    print(b.get_brand())
-    print(b.get_model())
-    print(b.get_type_of_bike())
-    print(c.get_brand())
-    print(c.get_model())
-    print(c.get_type_of_fuel())
+    print(d1.get_name())
+    print(d1.get_age())
+    print(d1.get_race())
+    print(d2.get_name())
+    print(d2.get_age())
+    print(d2.get_race())
+    print(c1.get_name())
+    print(c1.get_age())
+    print(c1.get_color())
+    print(c1.get_name())
+    print(c1.get_age())
+    print(c1.get_color())
 
 
 if __name__ == '__main__':
