@@ -1,4 +1,4 @@
-class Vehicle:
+class Device:
     def __init__(self, brand, model, year):
         self.brand = brand
         self.model = model
@@ -14,51 +14,62 @@ class Vehicle:
         return self.year
 
     def show_info(self):
-        print(f"brand: {self.brand}, modello: {self.model}, anno: {self.year}")
+        print(f"marca: {self.brand}, modello: {self.model}, anno: {self.year}")
 
 
-class Car(Vehicle):
-    def __init__(self,  brand, model, year, number_of_doors):
+class Laptop(Device):
+    def __init__(self,  brand, model, year, ram, processor):
         super().__init__( brand, model, year)
-        self.number_of_doors = number_of_doors
+        self.ram = ram
+        self.processor = processor
 
-    def get_number_of_doors(self):
-        return self.number_of_doors
+    def get_ram(self):
+        return self.ram
+
+    def get_processor(self):
+        return self.processor
 
     def show_info(self):
         super().show_info()
-        print(f"numero porte: {self.number_of_doors}")
+        print(f"ram: {self.ram}, processore: {self.processor}")
 
 
-class Motorcycle(Vehicle):
-    def __init__(self, brand, model, year, type_of_motorcycle):
+class Smartphone(Device):
+    def __init__(self, brand, model, year, internal_memory, number_of_cameras):
         super().__init__(brand, model, year)
-        self.type_of_motocycle = type_of_motorcycle
+        self.internal_memory = internal_memory
+        self.number_of_cameras = number_of_cameras
 
-    def get_type_of_motocycle(self):
-        return self.type_of_motocycle
+    def get_internal_memory(self):
+        return self.internal_memory
+
+    def get_number_of_cameras(self):
+        return self.number_of_cameras
 
     def show_info(self):
         super().show_info()
-        print(f"tipo di moto: {self.type_of_motocycle}")
+        print(f"memoria interna: {self.internal_memory}, numero fotocamere: {self.number_of_cameras}")
 
 
 def main():
-    c = Car("Fiat", "Panda", 2015, 5)
-    m = Motorcycle("Yamaha", "MT-07", 2018, "Sportiva")
-    c.show_info()
+    l = Laptop("Apple", "MacBook Pro", 2021, 16, "M1")
+    s = Smartphone("Samsung", "Galaxy S21", 2021, 128, 4)
+    l.show_info()
     print()
-    m.show_info()
+    s.show_info()
     print()
 
-    print(c.get_brand())
-    print(c.get_model())
-    print(c.get_year())
-    print(c.get_number_of_doors())
-    print(m.get_brand())
-    print(m.get_model())
-    print(m.get_year())
-    print(m.get_type_of_motocycle())
+    print(l.get_brand())
+    print(l.get_model())
+    print(l.get_year())
+    print(l.get_processor())
+    print(l.get_ram())
+
+    print(s.get_brand())
+    print(s.get_model())
+    print(s.get_year())
+    print(s.get_internal_memory())
+    print(s.get_number_of_cameras())
 
 
 if __name__ == '__main__':
