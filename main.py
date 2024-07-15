@@ -1,66 +1,71 @@
-class MusicalInstrument:
-    def __init__(self, brand, model, year_of_manufacture):
-        self.brand = brand
-        self.model = model
-        self.year_of_manufacture = year_of_manufacture
+class Sporty:
+    def __init__(self, name, age, nationality):
+        self.name = name
+        self.age = age
+        self.nationality = nationality
 
-    def get_brand(self):
-        return self.brand
+    def get_name(self):
+        return self.name
 
-    def get_model(self):
-        return self.model
+    def get_age(self):
+        return self.age
 
-    def get_year_of_manufacture(self):
-        return self.year_of_manufacture
-
-    def show_info(self):
-        print(f"marca: {self.brand}, modello: {self.model}, anno di fabbricazione: {self.year_of_manufacture}")
-
-
-class StringInstrument(MusicalInstrument):
-    def __init__(self,  brand, model, year_of_manufacture, string_number):
-        super().__init__(brand, model, year_of_manufacture)
-        self.string_number = string_number
-
-    def get_string_number(self):
-        return self.string_number
+    def get_nationality(self):
+        return self.nationality
 
     def show_info(self):
-        super().show_info()
-        print(f"numero corde: {self.string_number}")
+        print(f"nome: {self.name}, age: {self.age}, nazionalita': {self.nationality}")
 
 
-class WindInstrument(MusicalInstrument):
-    def __init__(self, brand, model, year_of_manufacture, material):
-        super().__init__(brand, model, year_of_manufacture)
-        self.material = material
+class SoccerPlayer(Sporty):
+    def __init__(self, name, age, nationality, team, position):
+        super().__init__(name, age, nationality)
+        self.team = team
+        self.position = position
 
-    def get_material(self):
-        return self.material
+    def get_team(self):
+        return self.team
+
+    def get_position(self):
+        return self.position
 
     def show_info(self):
         super().show_info()
-        print(f"materiale: {self.material}")
+        print(f"squadra: {self.team}, posizione: {self.position}")
+
+
+class TennisPlayer(Sporty):
+    def __init__(self, name, age, nationality, atp_wta_rankings):
+        super().__init__(name, age, nationality)
+        self.atp_wta_rankings = atp_wta_rankings
+
+    def get_atp_wta_rankings(self):
+        return self.atp_wta_rankings
+
+    def show_info(self):
+        super().show_info()
+        print(f"atp_wta_rankings: {self.atp_wta_rankings}")
 
 
 def main():
-    s = StringInstrument("Chitarra", "Fender", 2019, 6)
-    w = WindInstrument("Flauto", "Yamaha", 2020, "Legno")
+    s = SoccerPlayer("Cristiano Ronaldo", 36, "Portoghese", "Manchester United", "Attaccante")
+    t = TennisPlayer("Roger Federer", 40, "Svizzero", 8)
 
     s.show_info()
     print()
-    w.show_info()
+    t.show_info()
     print()
 
-    print(s.get_brand())
-    print(s.get_model())
-    print(s.get_year_of_manufacture())
-    print(s.get_string_number())
+    print(s.get_name())
+    print(s.get_age())
+    print(s.get_position())
+    print(s.get_nationality())
+    print(s.get_team())
 
-    print(w.get_brand())
-    print(w.get_model())
-    print(w.get_year_of_manufacture())
-    print(w.get_material())
+    print(t.get_name())
+    print(t.get_age())
+    print(t.get_nationality())
+    print(t.get_atp_wta_rankings())
 
 
 if __name__ == '__main__':
