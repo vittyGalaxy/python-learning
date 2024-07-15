@@ -1,71 +1,86 @@
-class Sporty:
-    def __init__(self, name, age, nationality):
-        self.name = name
-        self.age = age
-        self.nationality = nationality
+class Building:
+    def __init__(self, address, number_of_floors, construction_year):
+        self.address = address
+        self.number_of_floors = number_of_floors
+        self.costruction_year = construction_year
 
-    def get_name(self):
-        return self.name
+    def get_address(self):
+        return self.address
 
-    def get_age(self):
-        return self.age
+    def get_number_of_floors(self):
+        return self.number_of_floors
 
-    def get_nationality(self):
-        return self.nationality
-
-    def show_info(self):
-        print(f"nome: {self.name}, age: {self.age}, nazionalita': {self.nationality}")
-
-
-class SoccerPlayer(Sporty):
-    def __init__(self, name, age, nationality, team, position):
-        super().__init__(name, age, nationality)
-        self.team = team
-        self.position = position
-
-    def get_team(self):
-        return self.team
-
-    def get_position(self):
-        return self.position
+    def get_costruction_year(self):
+        return self.costruction_year
 
     def show_info(self):
-        super().show_info()
-        print(f"squadra: {self.team}, posizione: {self.position}")
+        print(f"indirizzo: {self.address}, numero di piani: {self.number_of_floors}, anno di costruzione: {self.costruction_year}")
 
 
-class TennisPlayer(Sporty):
-    def __init__(self, name, age, nationality, atp_wta_rankings):
-        super().__init__(name, age, nationality)
-        self.atp_wta_rankings = atp_wta_rankings
+class House(Building):
+    def __init__(self, address, number_of_floors, construction_year, number_of_rooms, garden):
+        super().__init__(address, number_of_floors, construction_year)
+        self.number_of_rooms = number_of_rooms
+        self.garden = garden
 
-    def get_atp_wta_rankings(self):
-        return self.atp_wta_rankings
+    def get_number_of_rooms(self):
+        return self.number_of_rooms
+
+    def get_garden(self):
+        return self.garden
 
     def show_info(self):
         super().show_info()
-        print(f"atp_wta_rankings: {self.atp_wta_rankings}")
+        if self.garden:
+            self.garden = "C'e' il giardino"
+
+        else:
+            self.garden = "Non c'e' il giardino"
+        print(f"numero camere: {self.number_of_rooms}, giardino: {self.garden}")
+
+
+class Office(Building):
+    def __init__(self, address, number_of_floors, construction_year, number_offices, elevator):
+        super().__init__(address, number_of_floors, construction_year)
+        self.number_offices = number_offices
+        self.elevator = elevator
+
+    def get_number_offices(self):
+        return self.number_offices
+
+    def get_elevator(self):
+        return self.elevator
+
+    def show_info(self):
+        super().show_info()
+        if self.elevator:
+            self.elevator = "C'e' l'ascensore"
+
+        else:
+            self.elevator = "Non c'e' l'ascensore"
+        print(f"numero di uffici: {self.number_offices}, l'ascensore: {self.elevator}")
 
 
 def main():
-    s = SoccerPlayer("Cristiano Ronaldo", 36, "Portoghese", "Manchester United", "Attaccante")
-    t = TennisPlayer("Roger Federer", 40, "Svizzero", 8)
+    h = House("Via Roma 1", 2, 1990, 5, True)
+    o = Office("Corso Venezia 15", 5, 2010, 10, True)
 
-    s.show_info()
+    h.show_info()
     print()
-    t.show_info()
+    o.show_info()
     print()
 
-    print(s.get_name())
-    print(s.get_age())
-    print(s.get_position())
-    print(s.get_nationality())
-    print(s.get_team())
+    print(h.get_address())
+    print(h.get_number_of_floors())
+    print(h.get_costruction_year())
+    print(h.get_number_of_rooms())
+    print(h.get_garden())
 
-    print(t.get_name())
-    print(t.get_age())
-    print(t.get_nationality())
-    print(t.get_atp_wta_rankings())
+    print(o.get_address())
+    print(o.get_number_of_floors())
+    print(o.get_costruction_year())
+    print(o.get_number_offices())
+    print(o.get_elevator())
 
 
 if __name__ == '__main__':
