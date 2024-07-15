@@ -1,69 +1,64 @@
-class Game:
-    def __init__(self, name, minimum_age):
-        self.name = name
-        self.minimum_age = minimum_age
+class Vehicle:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
 
-    def get_name(self):
-        return self.name
+    def get_brand(self):
+        return self.brand
 
-    def get_minimum_age(self):
-        return self.minimum_age
+    def get_model(self):
+        return self.model
 
-    def show_info(self):
-        print(f"Nome: {self.name}, eta' minima: {self.minimum_age}")
-
-
-class OutDoorGame(Game):
-    def __init__(self, name, minimum_age, space_needed):
-        super().__init__(name, minimum_age)
-        self.space_needed = space_needed
-
-    def get_space_needed(self):
-        return self.space_needed
+    def get_year(self):
+        return self.year
 
     def show_info(self):
-        super().show_info()
-        print(f"spazio necessario: {self.space_needed}")
+        print(f"brand: {self.brand}, modello: {self.model}, anno: {self.year}")
 
 
-class BoardGame(Game):
-    def __init__(self, name, minimum_age, number_player):
-        super().__init__(name, minimum_age)
-        self.number_player = number_player
+class Car(Vehicle):
+    def __init__(self,  brand, model, year, number_of_doors):
+        super().__init__( brand, model, year)
+        self.number_of_doors = number_of_doors
 
-    def get_number_player(self):
-        return self.number_player
+    def get_number_of_doors(self):
+        return self.number_of_doors
 
     def show_info(self):
         super().show_info()
-        print(f"Numero giocatori: {self.number_player}")
+        print(f"numero porte: {self.number_of_doors}")
+
+
+class Motorcycle(Vehicle):
+    def __init__(self, brand, model, year, type_of_motorcycle):
+        super().__init__(brand, model, year)
+        self.type_of_motocycle = type_of_motorcycle
+
+    def get_type_of_motocycle(self):
+        return self.type_of_motocycle
+
+    def show_info(self):
+        super().show_info()
+        print(f"tipo di moto: {self.type_of_motocycle}")
 
 
 def main():
-    o1 = OutDoorGame("Calcio", 6, "Campo da calcio")
-    o2 = OutDoorGame("Nascondino", 4, "Giardino")
-    b1 = BoardGame("Monopoly", 8, 4)
-    b2 = BoardGame("Scacchi", 10, 2)
-    o1.show_info()
+    c = Car("Fiat", "Panda", 2015, 5)
+    m = Motorcycle("Yamaha", "MT-07", 2018, "Sportiva")
+    c.show_info()
     print()
-    o2.show_info()
+    m.show_info()
     print()
-    b1.show_info()
-    print()
-    b2.show_info()
 
-    print(o1.get_name())
-    print(o1.get_minimum_age())
-    print(o1.get_space_needed())
-    print(o2.get_name())
-    print(o2.get_minimum_age())
-    print(o2.get_space_needed())
-    print(b1.get_name())
-    print(b1.get_minimum_age())
-    print(b1.get_number_player())
-    print(b2.get_name())
-    print(b2.get_minimum_age())
-    print(b2.get_number_player())
+    print(c.get_brand())
+    print(c.get_model())
+    print(c.get_year())
+    print(c.get_number_of_doors())
+    print(m.get_brand())
+    print(m.get_model())
+    print(m.get_year())
+    print(m.get_type_of_motocycle())
 
 
 if __name__ == '__main__':
