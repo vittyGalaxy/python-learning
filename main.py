@@ -81,7 +81,7 @@ def main():
 
     print(m1.get_brand())
     print(m1.get_model())
-    print(m1.year())
+    print(m1.get_year())
     print(m1.get_displacement())
     print(m1.get_typee())
 
