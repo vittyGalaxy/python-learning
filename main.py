@@ -1,95 +1,100 @@
-class Vehicle:
-    def __init__(self, brand, model, year):
-        self.brand = brand
-        self.model = model
-        self.year = year
+class Animal:
+    def __init__(self, name, species, age):
+        self.name = name
+        self.species = species
+        self.age = age
 
-    def get_brand(self):
-        return self.brand
+    def get_name(self):
+        return self.name
 
-    def get_model(self):
-        return self.model
+    def get_species(self):
+        return self.species
 
-    def get_year(self):
-        return self.year
-
-    def show_info(self):
-        print(f"marca: {self.brand}, modello: {self.model}, anno: {self.year}")
-
-
-class Car(Vehicle):
-    def __init__(self, brand, model, year, number_of_doors, boot_capacity):
-        super().__init__(brand, model, year)
-        self.number_of_doors = number_of_doors
-        self.boot_capacity = boot_capacity
-
-    def get_number_of_doors(self):
-        return self.number_of_doors
-
-    def get_boot_capacity(self):
-        return self.boot_capacity
+    def get_age(self):
+        return self.age
 
     def show_info(self):
-        super().show_info()
-        print(f"numero porte: {self.number_of_doors}, capacita' bagaglio: {self.boot_capacity}")
+        print(f"nome: {self.name}, specie: {self.species}, eta': {self.age}")
 
 
-class Motorcycle(Vehicle):
-    def __init__(self, brand, model, year, displacement, typee):
-        super().__init__(brand, model, year)
-        self.displacement = displacement
-        self.typee = typee
+class Mammal(Animal):
+    def __init__(self, name, species, age, hair_length, eating_habits):
+        super().__init__(name, species, age)
+        self.hair_length = hair_length
+        self.eating_habits = eating_habits
 
-    def get_displacement(self):
-        return self.displacement
+    def get_hair_lenght(self):
+        return self.hair_length
 
-    def get_typee(self):
-        return self.typee
+    def get_eatin_habits(self):
+        return self.eating_habits
 
     def show_info(self):
         super().show_info()
-        print(f"cilindrata: {self.displacement}, tipo: {self.typee}")
+        print(f"lunghezza pelo: {self.hair_length}, abitudini alimentari: {self.eating_habits}")
+
+
+class Bird(Animal):
+    def __init__(self, name, species, age, wingspan, migratory):
+        super().__init__(name, species, age)
+        self.wingspan = wingspan
+        self.migratory = migratory
+
+    def get_wingspan(self):
+        return self.wingspan
+
+    def get_migratory(self):
+        return self.migratory
+
+    def show_info(self):
+        super().show_info()
+        if self.migratory:
+            self.migratory = "Si"
+
+        else:
+            self.migratory = "No"
+        print(f"apertura alare: {self.wingspan}, migratore: {self.migratory}")
 
 
 def main():
-    c1 = Car("Fiat", "500", 2019, 3, 185)
-    c2 = Car("Samsung", "Galaxy S23", 3900, 6.8, 256)
-    m1 = Motorcycle("Ducati", "Panigale V4", 2021, 1103, "Sport")
-    m2 = Motorcycle("Harley-Davidson", "Iron 883", 2018, 883, "Cruiser")
+    m1 = Mammal("Leo", "Leone", 5, 2.5, "carnivoro")
+    m2 = Mammal("Ella", "Elefante", 10, 0.5, "erbivoro")
+    b1 = Bird("Robin", "Pettirosso", 2, 30.0, True)
+    b2 = Bird("Polly", "Pappagallo", 4, 50.0, False)
 
-    c1.show_info()
-    print()
-    c2.show_info()
-    print()
     m1.show_info()
     print()
     m2.show_info()
     print()
+    b1.show_info()
+    print()
+    b2.show_info()
+    print()
 
 
-    print(c1.get_brand())
-    print(c1.get_model())
-    print(c1.get_year())
-    print(c1.get_number_of_doors())
-    print(c1.get_boot_capacity())
+    print(m1.get_name())
+    print(m1.get_species())
+    print(m1.get_age())
+    print(m1.get_hair_lenght())
+    print(m1.get_eatin_habits())
 
-    print(c2.get_brand())
-    print(c2.get_model())
-    print(c2.get_year())
-    print(c2.get_number_of_doors())
-    print(c2.get_boot_capacity())
+    print(m2.get_name())
+    print(m2.get_species())
+    print(m2.get_age())
+    print(m2.get_hair_lenght())
+    print(m2.get_eatin_habits())
 
-    print(m1.get_brand())
-    print(m1.get_model())
-    print(m1.get_year())
-    print(m1.get_displacement())
-    print(m1.get_typee())
+    print(b1.get_name())
+    print(b1.get_species())
+    print(b1.get_age())
+    print(b1.get_wingspan())
+    print(b1.get_migratory())
 
-    print(m2.get_brand())
-    print(m2.get_model())
-    print(m2.get_year())
-    print(m2.get_displacement())
-    print(m2.get_typee())
+    print(b2.get_name())
+    print(b2.get_species())
+    print(b2.get_age())
+    print(b2.get_wingspan())
+    print(b2.get_migratory())
 
 
 if __name__ == '__main__':
