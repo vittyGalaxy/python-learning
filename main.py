@@ -1,94 +1,94 @@
-class Artwork:
-    def __init__(self, title, artist, year_creation):
+class Product:
+    def __init__(self, title, author, price):
         self.title = title
-        self.artist = artist
-        self.year_creation = year_creation
+        self.author = author
+        self.price = price
 
     def get_title(self):
         return self.title
 
-    def get_artist(self):
-        return self.artist
+    def get_author(self):
+        return self.author
 
-    def get_year_creation(self):
-        return self.year_creation
-
-    def show_info(self):
-        print(f"titolo: {self.title}, artista: {self.artist}, anno di creazione: {self.year_creation}")
-
-
-class Painting(Artwork):
-    def __init__(self, title, artist, year_creation, technique, dimensions):
-        super().__init__(title, artist, year_creation)
-        self.technique = technique
-        self.dimensions = dimensions
-
-    def get_technique(self):
-        return self.technique
-
-    def get_dimensions(self):
-        return self.dimensions
+    def get_price(self):
+        return self.price
 
     def show_info(self):
-        super().show_info()
-        print(f"tecnica: {self.technique}, dimensioni: {self.dimensions}")
+        print(f"titolo: {self.title}, autore: {self.author}, prezzo: {self.price}")
 
 
-class Sculpture(Artwork):
-    def __init__(self, title, artist, year_creation, material, height):
-        super().__init__(title, artist, year_creation)
-        self.material = material
-        self.height = height
+class Book(Product):
+    def __init__(self, title, author, price, number_pages, cover):
+        super().__init__(title, author, price)
+        self.number_pages = number_pages
+        self.cover = cover
 
-    def get_material(self):
-        return self.material
+    def get_number_pages(self):
+        return self.number_pages
 
-    def get_height(self):
-        return self.height
+    def get_cover(self):
+        return self.cover
 
     def show_info(self):
         super().show_info()
-        print(f"materiale: {self.material}, altezza: {self.height}")
+        print(f"numero pagine: {self.number_pages}, copertina: {self.cover}")
+
+
+class EBook(Product):
+    def __init__(self, title, author, price, file_size, formatt):
+        super().__init__(title, author, price)
+        self.file_size = file_size
+        self.formatt = formatt
+
+    def get_file_size(self):
+        return self.file_size
+
+    def get_formatt(self):
+        return self.formatt
+
+    def show_info(self):
+        super().show_info()
+        print(f"dimensione file: {self.file_size}, formato: {self.formatt}")
 
 
 def main():
-    p1 = Painting("Notte Stellata", "Vincent van Gogh", 1889, "olio su tela", "73.7x92.1 cm")
-    p2 = Painting("La Gioconda", "Leonardo da Vinci", 1503, "olio su tavola", "77x53 cm")
-    s1 = Sculpture("David", "Michelangelo", 1504, "marmo", 517)
-    s2 = Sculpture("Il Pensatore", "Auguste Rodin", 1902, "bronzo", 188)
+    l1 = Book("Il Signore degli Anelli", "J.R.R. Tolkien", 20.99, 1178, "rigida")
+    l2 = Book("1984", "George Orwell", 12.99, 328, "flessibile")
+    e1 = EBook("Il Codice Da Vinci", "Dan Brown", 9.99, 1.5, "PDF")
+    e2 = EBook("Harry Potter e la Pietra Filosofale", "J.K. Rowling", 7.99, 2.0, "ePub")
 
-    p1.show_info()
+    l1.show_info()
     print()
-    p2.show_info()
+    l2.show_info()
     print()
-    s1.show_info()
+    e1.show_info()
     print()
-    s2.show_info()
+    e2.show_info()
     print()
 
-    print(p1.get_title())
-    print(p1.get_artist())
-    print(p1.get_year_creation())
-    print(p1.get_technique())
-    print(p1.get_dimensions())
+    print(l1.get_title())
+    print(l1.get_author())
+    print(l1.get_price())
+    print(l1.get_number_pages())
+    print(l1.get_cover())
 
-    print(p2.get_title())
-    print(p2.get_artist())
-    print(p2.get_year_creation())
-    print(p2.get_technique())
-    print(p2.get_dimensions())
+    print(l2.get_title())
+    print(l2.get_author())
+    print(l2.get_price())
+    print(l2.get_number_pages())
+    print(l2.get_cover())
 
-    print(s1.get_title())
-    print(s1.get_artist())
-    print(s1.get_year_creation())
-    print(s1.get_material())
-    print(s1.get_height())
+    print(e1.get_title())
+    print(e1.get_author())
+    print(e1.get_price())
+    print(e1.get_file_size())
+    print(e1.get_formatt())
 
-    print(s2.get_title())
-    print(s2.get_artist())
-    print(s2.get_year_creation())
-    print(s2.get_material())
-    print(s2.get_height())
+    print(e2.get_title())
+    print(e2.get_author())
+    print(e2.get_price())
+    print(e2.get_file_size())
+    print(e2.get_formatt())
 
 
 if __name__ == '__main__':
