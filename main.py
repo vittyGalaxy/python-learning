@@ -1,100 +1,94 @@
-class Animal:
-    def __init__(self, name, species, age):
-        self.name = name
-        self.species = species
-        self.age = age
+class Artwork:
+    def __init__(self, title, artist, year_creation):
+        self.title = title
+        self.artist = artist
+        self.year_creation = year_creation
 
-    def get_name(self):
-        return self.name
+    def get_title(self):
+        return self.title
 
-    def get_species(self):
-        return self.species
+    def get_artist(self):
+        return self.artist
 
-    def get_age(self):
-        return self.age
-
-    def show_info(self):
-        print(f"nome: {self.name}, specie: {self.species}, eta': {self.age}")
-
-
-class Mammal(Animal):
-    def __init__(self, name, species, age, hair_length, eating_habits):
-        super().__init__(name, species, age)
-        self.hair_length = hair_length
-        self.eating_habits = eating_habits
-
-    def get_hair_lenght(self):
-        return self.hair_length
-
-    def get_eatin_habits(self):
-        return self.eating_habits
+    def get_year_creation(self):
+        return self.year_creation
 
     def show_info(self):
-        super().show_info()
-        print(f"lunghezza pelo: {self.hair_length}, abitudini alimentari: {self.eating_habits}")
+        print(f"titolo: {self.title}, artista: {self.artist}, anno di creazione: {self.year_creation}")
 
 
-class Bird(Animal):
-    def __init__(self, name, species, age, wingspan, migratory):
-        super().__init__(name, species, age)
-        self.wingspan = wingspan
-        self.migratory = migratory
+class Painting(Artwork):
+    def __init__(self, title, artist, year_creation, technique, dimensions):
+        super().__init__(title, artist, year_creation)
+        self.technique = technique
+        self.dimensions = dimensions
 
-    def get_wingspan(self):
-        return self.wingspan
+    def get_technique(self):
+        return self.technique
 
-    def get_migratory(self):
-        return self.migratory
+    def get_dimensions(self):
+        return self.dimensions
 
     def show_info(self):
         super().show_info()
-        if self.migratory:
-            self.migratory = "Si"
+        print(f"tecnica: {self.technique}, dimensioni: {self.dimensions}")
 
-        else:
-            self.migratory = "No"
-        print(f"apertura alare: {self.wingspan}, migratore: {self.migratory}")
+
+class Sculpture(Artwork):
+    def __init__(self, title, artist, year_creation, material, height):
+        super().__init__(title, artist, year_creation)
+        self.material = material
+        self.height = height
+
+    def get_material(self):
+        return self.material
+
+    def get_height(self):
+        return self.height
+
+    def show_info(self):
+        super().show_info()
+        print(f"materiale: {self.material}, altezza: {self.height}")
 
 
 def main():
-    m1 = Mammal("Leo", "Leone", 5, 2.5, "carnivoro")
-    m2 = Mammal("Ella", "Elefante", 10, 0.5, "erbivoro")
-    b1 = Bird("Robin", "Pettirosso", 2, 30.0, True)
-    b2 = Bird("Polly", "Pappagallo", 4, 50.0, False)
+    p1 = Painting("Notte Stellata", "Vincent van Gogh", 1889, "olio su tela", "73.7x92.1 cm")
+    p2 = Painting("La Gioconda", "Leonardo da Vinci", 1503, "olio su tavola", "77x53 cm")
+    s1 = Sculpture("David", "Michelangelo", 1504, "marmo", 517)
+    s2 = Sculpture("Il Pensatore", "Auguste Rodin", 1902, "bronzo", 188)
 
-    m1.show_info()
+    p1.show_info()
     print()
-    m2.show_info()
+    p2.show_info()
     print()
-    b1.show_info()
+    s1.show_info()
     print()
-    b2.show_info()
+    s2.show_info()
     print()
 
+    print(p1.get_title())
+    print(p1.get_artist())
+    print(p1.get_year_creation())
+    print(p1.get_technique())
+    print(p1.get_dimensions())
 
-    print(m1.get_name())
-    print(m1.get_species())
-    print(m1.get_age())
-    print(m1.get_hair_lenght())
-    print(m1.get_eatin_habits())
+    print(p2.get_title())
+    print(p2.get_artist())
+    print(p2.get_year_creation())
+    print(p2.get_technique())
+    print(p2.get_dimensions())
 
-    print(m2.get_name())
-    print(m2.get_species())
-    print(m2.get_age())
-    print(m2.get_hair_lenght())
-    print(m2.get_eatin_habits())
+    print(s1.get_title())
+    print(s1.get_artist())
+    print(s1.get_year_creation())
+    print(s1.get_material())
+    print(s1.get_height())
 
-    print(b1.get_name())
-    print(b1.get_species())
-    print(b1.get_age())
-    print(b1.get_wingspan())
-    print(b1.get_migratory())
-
-    print(b2.get_name())
-    print(b2.get_species())
-    print(b2.get_age())
-    print(b2.get_wingspan())
-    print(b2.get_migratory())
+    print(s2.get_title())
+    print(s2.get_artist())
+    print(s2.get_year_creation())
+    print(s2.get_material())
+    print(s2.get_height())
 
 
 if __name__ == '__main__':
