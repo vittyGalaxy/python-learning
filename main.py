@@ -1,99 +1,110 @@
-class Dish:
-    def __init__(self, name, price, ingredients):
-        self.name = name
-        self.price = price
-        self.ingredients = ingredients
+class Show:
+    def __init__(self, title, date, duration):
+        self.title = title
+        self.date = date
+        self.duration = duration
 
-    def get_name(self):
-        return self.name
+    def get_title(self):
+        return self.title
 
-    def get_price(self):
-        return self.price
+    def get_date(self):
+        return self.date
 
-    def get_ingredients(self):
-        return self.ingredients
-
-    def show_info(self):
-        ingredients_str = ', '.join(self.ingredients)
-        print(f"nome: {self.name}, prezzo: {self.price:.2f}, ingredienti: {ingredients_str}")
-
-
-class Appetizers(Dish):
-    def __init__(self, name, price, ingredients, calories):
-        super().__init__(name, price, ingredients)
-        self.calories = calories
-
-    def get_calories(self):
-        return self.calories
+    def get_duration(self):
+        return self.duration
 
     def show_info(self):
-        super().show_info()
-        print(f"calories: {self.calories}")
+        print(f"titolo: {self.title}, data: {self.date}, durata: {self.duration}")
 
 
-class MainCourse(Dish):
-    def __init__(self, name, price, ingredients, cooking_time):
-        super().__init__(name, price, ingredients)
-        self.cooking_time = cooking_time
+class Concert(Show):
+    def __init__(self, title, date, duration, artist, genre):
+        super().__init__(title, date, duration)
+        self.artist = artist
+        self.genre = genre
 
-    def get_cooking_time(self):
-        return self.cooking_time
+    def get_artist(self):
+        return self.artist
+
+    def get_genre(self):
+        return self.genre
 
     def show_info(self):
         super().show_info()
-        print(f"tempo cottura: {self.cooking_time}")
+        print(f"artista: {self.artist}, genere: {self.genre}")
 
-class Dessert(Dish):
-    def __init__(self, name, price, ingredients, contains_sugar):
-        super().__init__(name, price, ingredients)
-        self.contains_sugar = contains_sugar
 
-    def get_contains_sugar(self):
-        return self.contains_sugar
+class OperaTheatrical(Show):
+    def __init__(self, title, date, duration, director, cast):
+        super().__init__(title, date, duration)
+        self.director = director
+        self.cast = cast
+
+    def get_director(self):
+        return self.director
+
+    def get_cast(self):
+        return self.cast
 
     def show_info(self):
         super().show_info()
-        if self.contains_sugar:
-            sugar_str = "Si"
+        cast_str = ', '.join(self.cast)
+        print(f"regista: {self.director}, cast: {cast_str}")
 
-        else:
-            sugar_str = "No"
-        print(f"contiene zucchero: {sugar_str}")
+
+class Film(Show):
+    def __init__(self, title, date, duration, director, rating):
+        super().__init__(title, date, duration)
+        self.director = director
+        self.rating = rating
+
+    def get_director(self):
+        return self.director
+
+    def get_rating(self):
+        return self.rating
+
+    def show_info(self):
+        super().show_info()
+        print(f"regista: {self.director}, valutazione: {self.rating}")
 
 
 def main():
-    a1 = Appetizers("Bruschetta", 5.0, ["pane", "pomodoro", "basilico"], 150)
-    a2 = Appetizers("Carpaccio di manzo", 10.0, ["manzo", "rucola", "parmigiano"], 200)
+    c1 = Concert("Concerto di Beethoven", "2023-10-15", 120, "Orchestra Sinfonica", "Classica")
+    c2 = Concert("Rock Night", "2023-11-01", 150, "The Rockers", "Rock")
 
-    m1 = MainCourse("Lasagna", 12.0, ["pasta", "carne", "besciamella"], 40)
-    m2 = MainCourse("Bistecca alla Fiorentina", 25.0, ["bistecca", "olio", "rosmarino"], 15)
+    o1 = OperaTheatrical("Amleto", "2023-09-20", 180, "Giovanni Rossi", ["Marco Bianchi", "Luca Verdi"])
+    o2 = OperaTheatrical("La Traviata", "2023-10-10", 160, "Maria Neri", ["Anna Rossi", "Francesco Gialli"])
 
-    d1 = Dessert("Tiramisù", 6.0, ["mascarpone", "caffè", "savoiardi"], True)
-    d2 = Dessert("Macedonia", 4.0, ["frutta", "succo di limone"], False)
+    f1 = Film("Inception", "2023-12-05", 148, "Christopher Nolan", "PG-13")
+    f2 = Film("Il Padrino", "2023-12-12", 175, "Francis Ford Coppola", "R")
 
-    appetizers = [a1, a2]
-    for a in appetizers:
-        a.show_info()
-        print(a.get_name())
-        print(a.get_price())
-        print(a.get_ingredients())
-        print(a.get_calories())
+    concert = [c1, c2]
+    for c in concert:
+        c.show_info()
+        print(c.get_title())
+        print(c.get_date())
+        print(c.get_duration())
+        print(c.get_artist())
+        print(c.get_genre())
 
-    main_course = [m1, m2]
-    for m in main_course:
-        m.show_info()
-        print(m.get_name())
-        print(m.get_price())
-        print(m.get_ingredients())
-        print(m.get_cooking_time())
+    opera_theatrical = [o1, o2]
+    for o in opera_theatrical:
+        o.show_info()
+        print(o.get_title())
+        print(o.get_date())
+        print(o.get_duration())
+        print(o.get_director())
+        print(o.get_cast())
 
-    dessert = [d1, d2]
-    for d in dessert:
-        d.show_info()
-        print(d.get_name())
-        print(d.get_price())
-        print(d.get_ingredients())
-        print(d.get_contains_sugar())
+    film = [f1, f2]
+    for f in film:
+        f.show_info()
+        print(f.get_title())
+        print(f.get_date())
+        print(f.get_duration())
+        print(f.get_director())
+        print(f.get_rating())
 
 
 if __name__ == '__main__':
