@@ -1,94 +1,118 @@
-class Vehicle:
-    def __init__(self, brand, model, year):
-        self.brand = brand
-        self.model = model
-        self.year = year
-
-    def get_brand(self):
-        return self.brand
-
-    def get_model(self):
-        return self.model
-
-    def get_year(self):
-        return self.year
-
-    def show_info(self):
-        print(f"marca: {self.brand}, modello: {self.model}, anno: {self.year}")
+from abc import ABC, abstractmethod
 
 
-class Car(Vehicle):
-    def __init__(self, brand, model, year, number_of_seats, type_of_fuel):
-        super().__init__(brand, model, year)
-        self.number_of_seats = number_of_seats
-        self.type_of_fuel = type_of_fuel
+class TeamMember:
+    def __init__(self, name, surname, age, salary):
+        self.name = name
+        self.surname = surname
+        self.age = age
+        self.salary = salary
 
-    def get_number_of_seats(self):
-        return self.number_of_seats
+    def get_name(self):
+        return self.name
 
-    def get_type_of_fuel(self):
-        return self.type_of_fuel
+    def get_surname(self):
+        return self.surname
+
+    def get_age(self):
+        return self.age
+
+    def get_salary(self):
+        return self.salary
 
     def show_info(self):
-        super().show_info()
-        print(f"numero posti: {self.number_of_seats}, tipo di carburante: {self.type_of_fuel}")
+        print(f"nome: {self.name}, cognome: {self.surname}, eta': {self.age}, stipendio: {self.salary}")
+
+    def calculate_bonus(self):
+        pass
 
 
-class Truck(Vehicle):
-    def __init__(self, brand, model, year, load_capacity, number_axles):
-        super().__init__(brand, model, year)
-        self.load_capacity = load_capacity
-        self.number_axles = number_axles
+class Developer(TeamMember):
+    def __init__(self, name, surname, age, salary, programming_languages, years_of_experience):
+        super().__init__(name, surname, age, salary)
+        self.programming_languages = programming_languages
+        self.years_of_experience = years_of_experience
 
-    def get_load_capacity(self):
-        return self.load_capacity
+    def get_programming_languages(self):
+        return self.programming_languages
 
-    def get_number_axles(self):
-        return self.number_axles
+    def get_years_of_experience(self):
+        return self.years_of_experience
 
     def show_info(self):
         super().show_info()
-        print(f"capacita' carico: {self.load_capacity}, numero assi: {self.number_axles}")
+        print(f"linguaggio programmazione: {self.programming_languages}, anni di esperienza: {self.years_of_experience}")
+
+    def calculate_bonus(self):
+        return self.salary * self.years_of_experience * 0.05
+
+
+class Manager(TeamMember):
+    def __init__(self, name, surname, age, salary, teams_managed, projects_completed):
+        super().__init__(name, surname, age, salary)
+        self.teams_managed = teams_managed
+        self.projects_completed = projects_completed
+
+    def get_teams_managed(self):
+        return self.teams_managed
+
+    def get_projects_completed(self):
+        return self.projects_completed
+
+    def show_info(self):
+        super().show_info()
+        print(f"team gestiti: {self.teams_managed}, progetti completati: {self.projects_completed}")
+
+    def calculate_bonus(self):
+        return self.salary * self.projects_completed * 0.1
 
 
 def main():
-    c1 = Car("Fiat", "Panda", 2020, 5, "benzina")
-    c2 = Car("Tesla", "Model 3", 2021, 5, "elettrico")
-    t1 = Truck("Scania", "R450", 2019, 18.0, 4)
-    t2 = Truck("Volvo", "FH16", 2022, 25.0, 3)
+    d1 = Developer("Alice", "Verdi", 28, 3500.0, ["Python", "JavaScript"], 5)
+    d2 = Developer("Bob", "Bianchi", 32, 4000.0, ["Java", "C++"], 7)
+    m1 = Manager("Clara", "Rossi", 40, 6000.0, 3, 10)
+    m2 = Manager("David", "Neri", 45, 7000.0, 4, 12)
 
-    c1.show_info()
+    d1.show_info()
+    print(f"Bonus: {d1.calculate_bonus():.2} euro")
     print()
-    c2.show_info()
+    d2.show_info()
+    print(f"Bonus: {d2.calculate_bonus():.2} euro")
     print()
-    t1.show_info()
+    m1.show_info()
+    print(f"Bonus: {m1.calculate_bonus():.2} euro")
     print()
-    t2.show_info()
+    m2.show_info()
+    print(f"Bonus: {m2.calculate_bonus():.2} euro")
     print()
 
-    print(c1.get_brand())
-    print(c1.get_model())
-    print(c1.get_year())
-    print(c1.get_number_of_seats())
-    print(c1.get_type_of_fuel())
+    print(d1.get_name())
+    print(d1.get_surname())
+    print(d1.get_age())
+    print(d1.get_salary())
+    print(d1.get_programming_languages())
+    print(d1.get_years_of_experience())
 
-    print(c2.get_brand())
-    print(c2.get_model())
-    print(c2.get_year())
-    print(c2.get_number_of_seats())
-    print(c2.get_type_of_fuel())
+    print(d2.get_name())
+    print(d2.get_surname())
+    print(d2.get_age())
+    print(d2.get_salary())
+    print(d2.get_programming_languages())
+    print(d2.get_years_of_experience())
 
-    print(t1.get_brand())
-    print(t1.get_model())
-    print(t1.get_year())
-    print(t1.get_load_capacity())
-    print(t1.get_number_axles())
+    print(m1.get_name())
+    print(m1.get_surname())
+    print(m1.get_age())
+    print(m1.get_salary())
+    print(m1.get_teams_managed())
+    print(m1.get_projects_completed())
 
-    print(t2.get_brand())
-    print(t2.get_model())
-    print(t2.get_year())
-    print(t2.get_load_capacity())
-    print(t2.get_number_axles())
+    print(m2.get_name())
+    print(m2.get_surname())
+    print(m2.get_age())
+    print(m2.get_salary())
+    print(m2.get_teams_managed())
+    print(m2.get_projects_completed())
 
 
 if __name__ == '__main__':
