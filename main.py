@@ -1,94 +1,94 @@
-class Product:
-    def __init__(self, title, author, price):
-        self.title = title
-        self.author = author
-        self.price = price
+class Vehicle:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
 
-    def get_title(self):
-        return self.title
+    def get_brand(self):
+        return self.brand
 
-    def get_author(self):
-        return self.author
+    def get_model(self):
+        return self.model
 
-    def get_price(self):
-        return self.price
-
-    def show_info(self):
-        print(f"titolo: {self.title}, autore: {self.author}, prezzo: {self.price}")
-
-
-class Book(Product):
-    def __init__(self, title, author, price, number_pages, cover):
-        super().__init__(title, author, price)
-        self.number_pages = number_pages
-        self.cover = cover
-
-    def get_number_pages(self):
-        return self.number_pages
-
-    def get_cover(self):
-        return self.cover
+    def get_year(self):
+        return self.year
 
     def show_info(self):
-        super().show_info()
-        print(f"numero pagine: {self.number_pages}, copertina: {self.cover}")
+        print(f"marca: {self.brand}, modello: {self.model}, anno: {self.year}")
 
 
-class EBook(Product):
-    def __init__(self, title, author, price, file_size, formatt):
-        super().__init__(title, author, price)
-        self.file_size = file_size
-        self.formatt = formatt
+class Car(Vehicle):
+    def __init__(self, brand, model, year, number_of_seats, type_of_fuel):
+        super().__init__(brand, model, year)
+        self.number_of_seats = number_of_seats
+        self.type_of_fuel = type_of_fuel
 
-    def get_file_size(self):
-        return self.file_size
+    def get_number_of_seats(self):
+        return self.number_of_seats
 
-    def get_formatt(self):
-        return self.formatt
+    def get_type_of_fuel(self):
+        return self.type_of_fuel
 
     def show_info(self):
         super().show_info()
-        print(f"dimensione file: {self.file_size}, formato: {self.formatt}")
+        print(f"numero posti: {self.number_of_seats}, tipo di carburante: {self.type_of_fuel}")
+
+
+class Truck(Vehicle):
+    def __init__(self, brand, model, year, load_capacity, number_axles):
+        super().__init__(brand, model, year)
+        self.load_capacity = load_capacity
+        self.number_axles = number_axles
+
+    def get_load_capacity(self):
+        return self.load_capacity
+
+    def get_number_axles(self):
+        return self.number_axles
+
+    def show_info(self):
+        super().show_info()
+        print(f"capacita' carico: {self.load_capacity}, numero assi: {self.number_axles}")
 
 
 def main():
-    l1 = Book("Il Signore degli Anelli", "J.R.R. Tolkien", 20.99, 1178, "rigida")
-    l2 = Book("1984", "George Orwell", 12.99, 328, "flessibile")
-    e1 = EBook("Il Codice Da Vinci", "Dan Brown", 9.99, 1.5, "PDF")
-    e2 = EBook("Harry Potter e la Pietra Filosofale", "J.K. Rowling", 7.99, 2.0, "ePub")
+    c1 = Car("Fiat", "Panda", 2020, 5, "benzina")
+    c2 = Car("Tesla", "Model 3", 2021, 5, "elettrico")
+    t1 = Truck("Scania", "R450", 2019, 18.0, 4)
+    t2 = Truck("Volvo", "FH16", 2022, 25.0, 3)
 
-    l1.show_info()
+    c1.show_info()
     print()
-    l2.show_info()
+    c2.show_info()
     print()
-    e1.show_info()
+    t1.show_info()
     print()
-    e2.show_info()
+    t2.show_info()
     print()
 
-    print(l1.get_title())
-    print(l1.get_author())
-    print(l1.get_price())
-    print(l1.get_number_pages())
-    print(l1.get_cover())
+    print(c1.get_brand())
+    print(c1.get_model())
+    print(c1.get_year())
+    print(c1.get_number_of_seats())
+    print(c1.get_type_of_fuel())
 
-    print(l2.get_title())
-    print(l2.get_author())
-    print(l2.get_price())
-    print(l2.get_number_pages())
-    print(l2.get_cover())
+    print(c2.get_brand())
+    print(c2.get_model())
+    print(c2.get_year())
+    print(c2.get_number_of_seats())
+    print(c2.get_type_of_fuel())
 
-    print(e1.get_title())
-    print(e1.get_author())
-    print(e1.get_price())
-    print(e1.get_file_size())
-    print(e1.get_formatt())
+    print(t1.get_brand())
+    print(t1.get_model())
+    print(t1.get_year())
+    print(t1.get_load_capacity())
+    print(t1.get_number_axles())
 
-    print(e2.get_title())
-    print(e2.get_author())
-    print(e2.get_price())
-    print(e2.get_file_size())
-    print(e2.get_formatt())
+    print(t2.get_brand())
+    print(t2.get_model())
+    print(t2.get_year())
+    print(t2.get_load_capacity())
+    print(t2.get_number_axles())
 
 
 if __name__ == '__main__':
