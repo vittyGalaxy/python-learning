@@ -1,110 +1,109 @@
-class Show:
-    def __init__(self, title, date, duration):
+class Material:
+    def __init__(self, title, authors, year_publication):
         self.title = title
-        self.date = date
-        self.duration = duration
+        self.authors = authors
+        self.year_publication = year_publication
 
     def get_title(self):
         return self.title
 
-    def get_date(self):
-        return self.date
+    def get_authors(self):
+        return self.authors
 
-    def get_duration(self):
-        return self.duration
+    def get_year_publication(self):
+        return self.year_publication
 
     def show_info(self):
-        print(f"titolo: {self.title}, data: {self.date}, durata: {self.duration}")
+        print(f"titolo: {self.title}, autori: {self.authors}, anno di pubblicazione: {self.year_publication}")
 
 
-class Concert(Show):
-    def __init__(self, title, date, duration, artist, genre):
-        super().__init__(title, date, duration)
-        self.artist = artist
+class Book(Material):
+    def __init__(self, title, authors, year_publication, number_of_pages, genre):
+        super().__init__(title, authors, year_publication)
+        self.number_of_pages = number_of_pages
         self.genre = genre
 
-    def get_artist(self):
-        return self.artist
+    def get_number_of_pages(self):
+        return self.number_of_pages
 
     def get_genre(self):
         return self.genre
 
     def show_info(self):
         super().show_info()
-        print(f"artista: {self.artist}, genere: {self.genre}")
+        print(f"numero di pagine: {self.number_of_pages}, genere: {self.genre}")
 
 
-class OperaTheatrical(Show):
-    def __init__(self, title, date, duration, director, cast):
-        super().__init__(title, date, duration)
-        self.director = director
-        self.cast = cast
+class Magazine(Material):
+    def __init__(self, title, authors, year_publication, number, publication_month):
+        super().__init__(title, authors, year_publication)
+        self.number = number
+        self.publication_month = publication_month
 
-    def get_director(self):
-        return self.director
+    def get_publication_month(self):
+        return self.publication_month
 
-    def get_cast(self):
-        return self.cast
-
-    def show_info(self):
-        super().show_info()
-        cast_str = ', '.join(self.cast)
-        print(f"regista: {self.director}, cast: {cast_str}")
-
-
-class Film(Show):
-    def __init__(self, title, date, duration, director, rating):
-        super().__init__(title, date, duration)
-        self.director = director
-        self.rating = rating
-
-    def get_director(self):
-        return self.director
-
-    def get_rating(self):
-        return self.rating
+    def get_number(self):
+        return self.number
 
     def show_info(self):
         super().show_info()
-        print(f"regista: {self.director}, valutazione: {self.rating}")
+        print(f"numero: {self.number}, mese di pubblicazione: {self.publication_month}")
+
+
+class DVD(Material):
+    def __init__(self, title, authors, year_publication, duration, genre):
+        super().__init__(title, authors, year_publication)
+        self.duration = duration
+        self.genre = genre
+
+    def get_duration(self):
+        return self.duration
+
+    def get_genre(self):
+        return self.genre
+
+    def show_info(self):
+        super().show_info()
+        print(f"durata: {self.duration}, genere: {self.genre}")
 
 
 def main():
-    c1 = Concert("Concerto di Beethoven", "2023-10-15", 120, "Orchestra Sinfonica", "Classica")
-    c2 = Concert("Rock Night", "2023-11-01", 150, "The Rockers", "Rock")
+    b1 = Book("Il Signore degli Anelli", ["J.R.R. Tolkien"], 1954, 1216, "Fantasy")
+    b2 = Book("1984", ["George Orwell"], 1949, 328, "Distopia")
 
-    o1 = OperaTheatrical("Amleto", "2023-09-20", 180, "Giovanni Rossi", ["Marco Bianchi", "Luca Verdi"])
-    o2 = OperaTheatrical("La Traviata", "2023-10-10", 160, "Maria Neri", ["Anna Rossi", "Francesco Gialli"])
+    m1 = Magazine("National Geographic", ["Vari autori"], 2023, 501, "Luglio")
+    m2 = Magazine("Scientific American", ["Vari autori"], 2023, 1023, "Agosto")
 
-    f1 = Film("Inception", "2023-12-05", 148, "Christopher Nolan", "PG-13")
-    f2 = Film("Il Padrino", "2023-12-12", 175, "Francis Ford Coppola", "R")
+    d1 = DVD("Inception", ["Christopher Nolan"], 2010, 148, "Fantascienza")
+    d2 = DVD("Il Padrino", ["Francis Ford Coppola"], 1972, 175, "Dramma")
 
-    concert = [c1, c2]
-    for c in concert:
-        c.show_info()
-        print(c.get_title())
-        print(c.get_date())
-        print(c.get_duration())
-        print(c.get_artist())
-        print(c.get_genre())
+    book = [b1, b2]
+    for b in book:
+        b.show_info()
+        print(b.get_title())
+        print(b.get_authors())
+        print(b.get_year_publication())
+        print(b.get_number_of_pages())
+        print(b.get_genre())
 
-    opera_theatrical = [o1, o2]
-    for o in opera_theatrical:
-        o.show_info()
-        print(o.get_title())
-        print(o.get_date())
-        print(o.get_duration())
-        print(o.get_director())
-        print(o.get_cast())
+    magazine = [m1, m2]
+    for m in magazine:
+        m.show_info()
+        print(m.get_title())
+        print(m.get_authors())
+        print(m.get_year_publication())
+        print(m.get_number())
+        print(m.get_publication_month())
 
-    film = [f1, f2]
-    for f in film:
-        f.show_info()
-        print(f.get_title())
-        print(f.get_date())
-        print(f.get_duration())
-        print(f.get_director())
-        print(f.get_rating())
+    dvd = [d1, d2]
+    for d in dvd:
+        d.show_info()
+        print(d.get_title())
+        print(d.get_authors())
+        print(d.get_year_publication())
+        print(d.get_duration())
+        print(d.get_genre())
 
 
 if __name__ == '__main__':
