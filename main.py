@@ -1,113 +1,124 @@
-class Product:
-    def __init__(self, brand, model, price):
+class Dress:
+    def __init__(self, brand, size, price):
         self.brand = brand
-        self.model = model
+        self.size = size
         self.price = price
 
     def get_brand(self):
         return self.brand
 
-    def get_model(self):
-        return self.model
+    def get_size(self):
+        return self.size
 
     def get_price(self):
         return self.price
 
     def show_info(self):
-        print(f"marca: {self.brand}, modello: {self.model}, prezzo: {self.price}")
+        print(f"marca: {self.brand}, taglia: {self.size}, prezzo: {self.price}")
+
+    def dress_type(self):
+        pass
 
 
-class Telephone(Product):
-    def __init__(self, brand, model, price, memory):
-        super().__init__(brand, model, price)
-        self.memory = memory
+class Tshirt(Dress):
+    def __init__(self, brand, size, price, material, sleeves):
+        super().__init__(brand, size, price)
+        self.material = material
+        self.sleeves = sleeves
 
-    def get_memory(self):
-        return self.memory
+    def get_material(self):
+        return self.material
 
-    def show_info(self):
-        super().show_info()
-        print(f"memoria: {self.memory}")
-
-    def calculate_discount(self, discount):
-        return self.price * (1 - discount / 100)
-
-
-class Laptop(Product):
-    def __init__(self, brand, model, price, ram, storage):
-        super().__init__(brand, model, price)
-        self.ram = ram
-        self.storage = storage
-
-    def get_ram(self):
-        return self.ram
-
-    def get_storage(self):
-        return self.storage
+    def get_sleeves(self):
+        return self.sleeves
 
     def show_info(self):
         super().show_info()
-        print(f"ram: {self.ram}, storage: {self.storage}")
+        print(f"materiale: {self.material}, maniche: {self.sleeves}")
 
-    def calculate_discount(self, discount):
-        return self.price * (1 - discount / 100)
+    def dress_type(self):
+        return "Maglietta"
 
 
-class Tablet(Product):
-    def __init__(self, brand, model, price, screen_size):
-        super().__init__(brand, model, price)
-        self.screen_size = screen_size
+class Trousers(Dress):
+    def __init__(self, brand, size, price, length, typee):
+        super().__init__(brand, size, price)
+        self.length = length
+        self.typee = typee
 
-    def get_screen_size(self):
-        return self.screen_size
+    def get_length(self):
+        return self.length
+
+    def get_typee(self):
+        return self.typee
 
     def show_info(self):
         super().show_info()
-        print(f"dimensioni schermo: {self.screen_size}")
+        print(f"lunghezza: {self.length}, tipo: {self.typee}")
 
-    def calculate_discount(self, discount):
-        return self.price * (1 - discount / 100)
+    def dress_type(self):
+        return "Pantaloni"
+
+
+class Jacket(Dress):
+    def __init__(self, brand, size, price, color, padding):
+        super().__init__(brand, size, price)
+        self.color = color
+        self.padding = padding
+
+    def get_color(self):
+        return self.color
+
+    def get_padding(self):
+        return self.padding
+
+    def show_info(self):
+        super().show_info()
+        print(f"colore: {self.color}, imbottitura: {self.padding}")
+
+    def dress_type(self):
+        return "Giacca"
 
 
 def main():
-    t1 = Telephone("Apple", "iPhone 12", 999.99, 128)
-    t2 = Telephone("Samsung", "Galaxy S21", 899.99, 256)
+    t1 = Tshirt("Nike", "M", 29.99, "cotone", "corte")
+    t2 = Tshirt("Adidas", "L", 24.99, "poliestere", "lunghe")
 
-    l1 = Laptop("Dell", "XPS 15", 1999.99, 16, 512)
-    l2 = Laptop("HP", "Spectre x360", 1599.99, 8, 256)
+    t3 = Trousers("Levi's", "32", 49.99, "lunghi", "jeans")
+    t4 = Trousers("Puma", "M", 39.99, "corti", "tuta")
 
-    t3 = Tablet("Apple", "iPad Pro", 799.99, 12.9)
-    t4 = Tablet("Samsung", "Galaxy Tab S7", 649.99, 11.0)
+    j1 = Jacket("North Face", "L", 99.99, "nero", "sì")
+    j2 = Jacket("Columbia", "M", 89.99, "rosso", "no")
 
-    discount = 10
-
-    telephone = [t1, t2]
-    for t in telephone:
+    t_shirt = [t1, t2]
+    for t in t_shirt:
         t.show_info()
         print(t.get_brand())
-        print(t.get_model())
+        print(t.get_size())
         print(t.get_price())
-        print(t.get_memory())
-        print(t.calculate_discount(discount))
+        print(t.get_material())
+        print(t.get_sleeves())
+        print(t.dress_type())
 
-    laptop = [l1, l2]
-    for l in laptop:
-        l.show_info()
-        print(l.get_brand())
-        print(l.get_model())
-        print(l.get_price())
-        print(l.get_ram())
-        print(l.get_storage())
-        print(l.calculate_discount(discount))
-
-    tablet = [t3, t4]
-    for t in tablet:
+    trousers = [t3, t4]
+    for t in trousers:
         t.show_info()
         print(t.get_brand())
-        print(t.get_model())
+        print(t.get_size())
         print(t.get_price())
-        print(t.get_screen_size())
-        print(t.calculate_discount(discount))
+        print(t.get_length())
+        print(t.get_typee())
+        print(t.dress_type())
+
+    jacket = [j1, j2]
+    for j in jacket:
+        j.show_info()
+        print(j.get_brand())
+        print(j.get_size())
+        print(j.get_price())
+        print(j.get_color())
+        print(j.get_padding())
+        print(j.dress_type())
 
 
 if __name__ == '__main__':
