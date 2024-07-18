@@ -1,129 +1,137 @@
-class Product:
-    def __init__(self, brand, model, price):
-        self.brand = brand
-        self.model = model
-        self.price = price
+from abc import ABC,abstractmethod
 
-    def get_brand(self):
-        return self.brand
 
-    def get_model(self):
-        return self.model
+class LibraryElement(ABC):
+    def __init__(self, title, publication_year, available=True):
+        self.title = title
+        self.publication_year = publication_year
+        self.available = available
 
-    def get_price(self):
-        return self.price
+    def get_title(self):
+        return self.title
+
+    def get_publication_year(self):
+        return self.publication_year
+
+    def get_available(self):
+        return self.available
 
     def show_info(self):
-        print(f"marca: {self.brand}, modello: {self.model}, prezzo: {self.price}")
+        print(f"titolo: {self.title}, anno di pubblicazione: {self.publication_year}, disponibile: {self.available}")
 
-    def prduct_type(self):
+    def calculate_loan_duration(self):
         pass
 
+    def lend(self):
+        if self.available:
+            self.available = False
 
-class Computer(Product):
-    def __init__(self, brand, size, price, cpu, ram, memory):
-        super().__init__(brand, size, price)
-        self.cpu = cpu
-        self.ram = ram
-        self.memory = memory
+        else:
+            print(f"{self.title} non e' disponibile per il prestito")
 
-    def get_cpu(self):
-        return self.cpu
-
-    def get_ram(self):
-        return self.ram
-
-    def get_memory(self):
-        return self.memory
-
-    def show_info(self):
-        super().show_info()
-        print(f"cpu: {self.cpu}, ram: {self.ram}, memoria: {self.memory}")
-
-    def prduct_type(self):
-        return "Computer"
+    def give_back(self):
+        self.available = True
 
 
-class Telephone(Product):
-    def __init__(self, brand, model, price, screen, battery):
-        super().__init__(brand, model, price)
-        self.screen = screen
-        self.battery = battery
+class Book(LibraryElement):
+    def __init__(self, title, publication_year, author, number_pages, available=True):
+        super().__init__(title, publication_year, available)
+        self.author = author
+        self.number_pages = number_pages
 
-    def get_screen(self):
-        return self.screen
+    def get_author(self):
+        return self.author
 
-    def get_battery(self):
-        return self.battery
+    def get_number_pages(self):
+        return self.number_pages
 
     def show_info(self):
         super().show_info()
-        print(f"schermo: {self.screen}, batteria: {self.battery}")
+        print(f"autore: {self.author}, numero di pagine: {self.number_pages}")
 
-    def prduct_type(self):
-        return "Telefono"
+    def calculate_loan_duration(self):
+        return 30
 
 
-class Tablet(Product):
-    def __init__(self, brand, model, price, screen, memory):
-        super().__init__(brand, model, price)
-        self.screen = screen
-        self.memory = memory
+class Magazine(LibraryElement):
+    def __init__(self, title, publication_year, number, publisher,available=True):
+        super().__init__(title, publication_year, available)
+        self.number = number
+        self.publisher = publisher
 
-    def get_screen(self):
-        return self.screen
+    def get_number(self):
+        return self.number
 
-    def get_memory(self):
-        return self.memory
+    def get_publisher(self):
+        return self.publisher
 
     def show_info(self):
         super().show_info()
-        print(f"schermo: {self.screen}, memoria: {self.memory}")
+        print(f"numero: {self.number}, editore: {self.publisher}")
 
-    def prduct_type(self):
-        return "Tablet"
+    def calculate_loan_duration(self):
+        return 7
+
+
+class DVD(LibraryElement):
+    def __init__(self, title, publication_year, director, duration, available=True):
+        super().__init__(title, publication_year, available)
+        self.director = director
+        self.duration = duration
+
+    def get_director(self):
+        return self.director
+
+    def get_duration(self):
+        return self.duration
+
+    def show_info(self):
+        super().show_info()
+        print(f"regista: {self.director}, durata: {self.duration} minuti")
+
+    def calculate_loan_duration(self):
+        return 14
 
 
 def main():
-    c1 = Computer("Dell", "XPS 13", 1200.00, "Intel i7", 16, 512)
-    c2 = Computer("Apple", "MacBook Pro", 2000.00, "Apple M1", 16, 1024)
+    b1 = Book("Il Nome della Rosa", 1980, "Umberto Eco", 512)
+    b2 = Book("1984", 1949, "George Orwell", 328)
 
-    t1 = Telephone("Samsung", "Galaxy S21", 800.00, 6.2, 4000)
-    t2 = Telephone("Apple", "iPhone 13", 900.00, 6.1, 3500)
+    m1 = Magazine("National Geographic", 2023, 345, "National Geographic Society")
+    m2 = Magazine("Time", 2023, 15, "Time USA, LLC")
 
-    t3 = Tablet("Apple", "iPad Pro", 1100.00, 11.0, 128)
-    t4 = Tablet("Samsung", "Galaxy Tab S7", 650.00, 11.0, 256)
+    d1 = DVD("Inception", 2010, "Christopher Nolan", 148)
+    d2 = DVD("Interstellar", 2014, "Christopher Nolan", 169)
 
-    computer = [c1, c2]
-    for c in computer:
-        c.show_info()
-        print(c.get_brand())
-        print(c.get_model())
-        print(c.get_price())
-        print(c.get_cpu())
-        print(c.get_ram())
-        print(c.get_memory())
-        print(c.prduct_type())
+    book = [b1, b2]
+    for b in book:
+        b.show_info()
+        print(b.get_title())
+        print(b.get_publication_year())
+        print(b.get_author())
+        print(b.get_number_pages())
+        print(b.get_available())
+        print(b.calculate_loan_duration())
 
-    telephone = [t1, t2]
-    for t in telephone:
-        t.show_info()
-        print(t.get_brand())
-        print(t.get_model())
-        print(t.get_price())
-        print(t.get_screen())
-        print(t.get_battery())
-        print(t.prduct_type())
+    magazine = [m1, m2]
+    for m in magazine:
+        m.show_info()
+        print(m.get_title())
+        print(m.get_publication_year())
+        print(m.get_number())
+        print(m.get_publisher())
+        print(m.get_available())
+        print(m.calculate_loan_duration())
 
-    tablet = [t3, t4]
-    for t in tablet:
-        t.show_info()
-        print(t.get_brand())
-        print(t.get_model())
-        print(t.get_price())
-        print(t.get_screen())
-        print(t.get_memory())
-        print(t.prduct_type())
+    dvd = [d1, d2]
+    for d in dvd:
+        d.show_info()
+        print(d.get_title())
+        print(d.get_publication_year())
+        print(d.get_director())
+        print(d.get_duration())
+        print(d.get_available())
+        print(d.calculate_loan_duration())
 
 
 if __name__ == '__main__':
