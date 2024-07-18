@@ -1,71 +1,113 @@
-class Form:
-    def __init__(self, color):
-        self.color = color
+class Product:
+    def __init__(self, brand, model, price):
+        self.brand = brand
+        self.model = model
+        self.price = price
 
-    def get_color(self):
-        return self.color
+    def get_brand(self):
+        return self.brand
 
-    def show_info(self):
-        print(f"colore: {self.color}")
+    def get_model(self):
+        return self.model
 
-
-class Circle(Form):
-    def __init__(self, color, radius):
-        super().__init__(color)
-        self.radius = radius
-
-    def get_radius(self):
-        return self.radius
+    def get_price(self):
+        return self.price
 
     def show_info(self):
-        super().show_info()
-        print(f"radius: {self.radius}")
-
-    def make_area(self):
-        return 3.14 * (self.radius ** 2)
+        print(f"marca: {self.brand}, modello: {self.model}, prezzo: {self.price}")
 
 
-class Rectangle(Form):
-    def __init__(self, color, base, height):
-        super().__init__(color)
-        self.base = base
-        self.height = height
+class Telephone(Product):
+    def __init__(self, brand, model, price, memory):
+        super().__init__(brand, model, price)
+        self.memory = memory
 
-    def get_base(self):
-        return self.base
-
-    def get_height(self):
-        return self.height
+    def get_memory(self):
+        return self.memory
 
     def show_info(self):
         super().show_info()
-        print(f"base: {self.base}, altezza: {self.height}")
+        print(f"memoria: {self.memory}")
 
-    def make_area(self):
-        return self.base * self.height
+    def calculate_discount(self, discount):
+        return self.price * (1 - discount / 100)
+
+
+class Laptop(Product):
+    def __init__(self, brand, model, price, ram, storage):
+        super().__init__(brand, model, price)
+        self.ram = ram
+        self.storage = storage
+
+    def get_ram(self):
+        return self.ram
+
+    def get_storage(self):
+        return self.storage
+
+    def show_info(self):
+        super().show_info()
+        print(f"ram: {self.ram}, storage: {self.storage}")
+
+    def calculate_discount(self, discount):
+        return self.price * (1 - discount / 100)
+
+
+class Tablet(Product):
+    def __init__(self, brand, model, price, screen_size):
+        super().__init__(brand, model, price)
+        self.screen_size = screen_size
+
+    def get_screen_size(self):
+        return self.screen_size
+
+    def show_info(self):
+        super().show_info()
+        print(f"dimensioni schermo: {self.screen_size}")
+
+    def calculate_discount(self, discount):
+        return self.price * (1 - discount / 100)
 
 
 def main():
-    c1 = Circle("Rosso", 5)
-    c2 = Circle("Blu", 3)
+    t1 = Telephone("Apple", "iPhone 12", 999.99, 128)
+    t2 = Telephone("Samsung", "Galaxy S21", 899.99, 256)
 
-    r1 = Rectangle("Verde", 4, 6)
-    r2 = Rectangle("Giallo", 2, 8)
+    l1 = Laptop("Dell", "XPS 15", 1999.99, 16, 512)
+    l2 = Laptop("HP", "Spectre x360", 1599.99, 8, 256)
 
-    circle = [c1, c2]
-    for c in circle:
-        c.show_info()
-        print(c.get_color())
-        print(c.get_radius())
-        print(c.make_area())
+    t3 = Tablet("Apple", "iPad Pro", 799.99, 12.9)
+    t4 = Tablet("Samsung", "Galaxy Tab S7", 649.99, 11.0)
 
-    rectangle = [r1, r2]
-    for r in rectangle:
-        r.show_info()
-        print(r.get_color())
-        print(r.get_base())
-        print(r.get_height())
-        print(r.make_area())
+    discount = 10
+
+    telephone = [t1, t2]
+    for t in telephone:
+        t.show_info()
+        print(t.get_brand())
+        print(t.get_model())
+        print(t.get_price())
+        print(t.get_memory())
+        print(t.calculate_discount(discount))
+
+    laptop = [l1, l2]
+    for l in laptop:
+        l.show_info()
+        print(l.get_brand())
+        print(l.get_model())
+        print(l.get_price())
+        print(l.get_ram())
+        print(l.get_storage())
+        print(l.calculate_discount(discount))
+
+    tablet = [t3, t4]
+    for t in tablet:
+        t.show_info()
+        print(t.get_brand())
+        print(t.get_model())
+        print(t.get_price())
+        print(t.get_screen_size())
+        print(t.calculate_discount(discount))
 
 
 if __name__ == '__main__':
