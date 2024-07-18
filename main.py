@@ -1,116 +1,71 @@
-class Voyage:
-    def __init__(self, departure, destination, duration, price):
-        self.departure = departure
-        self.destination = destination
-        self.duration = duration
-        self.price = price
+class Form:
+    def __init__(self, color):
+        self.color = color
 
-    def get_departure(self):
-        return self.departure
-
-    def get_destination(self):
-        return self.destination
-
-    def get_duration(self):
-        return self.duration
-
-    def get_price(self):
-        return self.price
+    def get_color(self):
+        return self.color
 
     def show_info(self):
-        print(f"partenza: {self.departure}, destinazione: {self.destination}, durata: {self.duration}, prezzo: {self.price}")
+        print(f"colore: {self.color}")
 
 
-class Flight(Voyage):
-    def __init__(self, departure, destination, duration, price, airline_number, flight_number):
-        super().__init__(departure, destination, duration, price)
-        self.airline_number = airline_number
-        self.flight_number = flight_number
+class Circle(Form):
+    def __init__(self, color, radius):
+        super().__init__(color)
+        self.radius = radius
 
-    def get_airline_number(self):
-        return self.airline_number
-
-    def get_flight_number(self):
-        return self.flight_number
+    def get_radius(self):
+        return self.radius
 
     def show_info(self):
         super().show_info()
-        print(f"compagnia aerea: {self.airline_number}, numero volo: {self.flight_number}")
+        print(f"radius: {self.radius}")
+
+    def make_area(self):
+        return 3.14 * (self.radius ** 2)
 
 
-class Train(Voyage):
-    def __init__(self, departure, destination, duration, price, train_number, classs):
-        super().__init__(departure, destination, duration, price)
-        self.train_number = train_number
-        self.classs = classs
+class Rectangle(Form):
+    def __init__(self, color, base, height):
+        super().__init__(color)
+        self.base = base
+        self.height = height
 
-    def get_train_number(self):
-        return self.train_number
+    def get_base(self):
+        return self.base
 
-    def get_classs(self):
-        return self.classs
-
-    def show_info(self):
-        super().show_info()
-        print(f"numero treno: {self.train_number}, classe: {self.classs}")
-
-
-class Bus(Voyage):
-    def __init__(self, departure, destination, duration, price, bus_company, bus_number):
-        super().__init__(departure, destination, duration, price)
-        self.bus_company = bus_company
-        self.bus_number = bus_number
-
-    def get_bus_company(self):
-        return self.bus_company
-
-    def get_bus_number(self):
-        return self.bus_number
+    def get_height(self):
+        return self.height
 
     def show_info(self):
         super().show_info()
-        print(f"compagnia autobus: {self.bus_company}, numero autobus: {self.bus_number}")
+        print(f"base: {self.base}, altezza: {self.height}")
+
+    def make_area(self):
+        return self.base * self.height
 
 
 def main():
-    f1 = Flight("Roma", "New York", 540, 850.00, "Alitalia", "AZ610")
-    f2 = Flight("Milano", "Parigi", 90, 120.00, "Air France", "AF1032")
+    c1 = Circle("Rosso", 5)
+    c2 = Circle("Blu", 3)
 
-    t1 = Train("Napoli", "Roma", 70, 45.00, "FR9610", "Prima")
-    t2 = Train("Firenze", "Venezia", 120, 35.00, "RV7823", "Seconda")
+    r1 = Rectangle("Verde", 4, 6)
+    r2 = Rectangle("Giallo", 2, 8)
 
-    b1 = Bus("Torino", "Genova", 150, 18.00, "Flixbus", "FB3201")
-    b2 = Bus("Bologna", "Verona", 90, 12.00, "Itabus", "IT6754")
+    circle = [c1, c2]
+    for c in circle:
+        c.show_info()
+        print(c.get_color())
+        print(c.get_radius())
+        print(c.make_area())
 
-    flight = [f1, f2]
-    for f in flight:
-        f.show_info()
-        print(f.get_departure())
-        print(f.get_destination())
-        print(f.get_duration())
-        print(f.get_price())
-        print(f.get_airline_number())
-        print(f.get_flight_number())
-
-    train = [t1, t2]
-    for t in train:
-        t.show_info()
-        print(t.get_departure())
-        print(t.get_destination())
-        print(t.get_duration())
-        print(t.get_price())
-        print(t.get_train_number())
-        print(t.get_classs())
-
-    bus = [b1, b2]
-    for b in bus:
-        b.show_info()
-        print(b.get_departure())
-        print(b.get_destination())
-        print(b.get_duration())
-        print(b.get_price())
-        print(b.get_bus_company())
-        print(b.get_bus_number())
+    rectangle = [r1, r2]
+    for r in rectangle:
+        r.show_info()
+        print(r.get_color())
+        print(r.get_base())
+        print(r.get_height())
+        print(r.make_area())
 
 
 if __name__ == '__main__':
