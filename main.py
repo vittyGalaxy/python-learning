@@ -1,117 +1,112 @@
-class Book:
-    def __init__(self, title, author, price, quantity):
-        self.title = title
-        self.author = author
+class Vehicle:
+    def __init__(self, brand, model, price, consumption):
+        self.brand = brand
+        self.model = model
         self.price = price
-        self.quantity = quantity
+        self.consumption = consumption
 
-    def get_title(self):
-        return self.title
+    def get_brand(self):
+        return self.brand
 
-    def get_author(self):
-        return self.author
+    def get_model(self):
+        return self.model
 
     def get_price(self):
         return self.price
 
-    def get_quantity(self):
-        return self.quantity
+    def get_consumption(self):
+        return self.consumption
 
     def show_info(self):
-        print(f"nome: {self.title}, autore: {self.author}, prezzo: {self.price}, quantita': {self.quantity}")
+        print(f"marca: {self.brand}, modello: {self.model}, prezzo: {self.price}, consumo: {self.consumption}")
 
-    def calculate_total_price(self, n_copies):
-        if n_copies > self.quantity:
-            return "Quantita' non disponibile"
-
-        return round(self.price * n_copies, 2)
-
-
-class Storytelling(Book):
-    def __init__(self, title, author, price, quantity, genre):
-        super().__init__(title, author, price, quantity)
-        self.genre = genre
-
-    def get_genre(self):
-        return self.genre
-
-    def show_info(self):
-        super().show_info()
-        print(f"genere: {self.genre}")
+    def calculate_fuel_cost(self, km, fuel_price):
+        litres_necessary = (self.consumption / 100) * km
+        total_cost = litres_necessary * fuel_price
+        return  round(total_cost, 2)
 
 
-class Nonfiction(Book):
-    def __init__(self, title, author, price, quantity, topic):
-        super().__init__(title, author, price, quantity)
-        self.topic = topic
+class Car(Vehicle):
+    def __init__(self, brand, model, price, consumption, number_of_doors):
+        super().__init__(brand, model, price, consumption)
+        self.number_of_doors = number_of_doors
 
-    def get_topic(self):
-        return self.topic
+    def get_number_of_doors(self):
+        return self.number_of_doors
 
     def show_info(self):
         super().show_info()
-        print(f"argomento: {self.topic}")
+        print(f"numero porte: {self.number_of_doors}")
 
 
-class TechnicalManual(Book):
-    def __init__(self, title, author, price, quantity, field, level):
-        super().__init__(title, author, price, quantity)
-        self.field = field
-        self.level = level
+class Motorcycle(Vehicle):
+    def __init__(self, brand, model, price, consumption, typee):
+        super().__init__(brand, model, price, consumption)
+        self.typee = typee
 
-    def get_field(self):
-        return self.field
-
-    def get_level(self):
-        return self.level
+    def get_typee(self):
+        return self.typee
 
     def show_info(self):
         super().show_info()
-        print(f"campo: {self.field}, livello: {self.level}")
+        print(f"tipo: {self.typee}")
+
+
+class Truck(Vehicle):
+    def __init__(self, brand, model, price, consumption, load_capacity):
+        super().__init__(brand, model, price, consumption)
+        self.load_capacity = load_capacity
+
+    def get_load_capacity(self):
+        return self.load_capacity
+
+    def show_info(self):
+        super().show_info()
+        print(f"capacita' carico: {self.load_capacity}")
 
 
 def main():
-    s1 = Storytelling("Il Grande Gatsby", "F. Scott Fitzgerald", 15.0, 20, "Romanzo")
-    s2 = Storytelling("1984", "George Orwell", 12.0, 15, "Distopia")
+    c1 = Car("Fiat", "Panda", 10000.0, 5.0, 5)
+    c2 = Car("Tesla", "Model S", 80000.0, 0.0, 4)
 
-    n1 = Nonfiction("Sapiens", "Yuval Noah Harari", 20.0, 10, "Storia")
-    n2 = Nonfiction("Il Gene", "Siddhartha Mukherjee", 18.0, 8, "Biologia")
+    m1 = Motorcycle("Yamaha", "MT-07", 7000.0, 4.3, "Sportiva")
+    m2 = Motorcycle("Harley-Davidson", "Iron 883", 9000.0, 5.6, "Cruiser")
 
-    t1 = TechnicalManual("Python per tutti", "Mark Lutz", 25.0, 5, "Programmazione", "Intermedio")
-    t2 = TechnicalManual("Introduzione alla Data Science", "Joel Grus", 30.0, 3, "Data Science", "Base")
+    t1 = Truck("Iveco", "Stralis", 50000.0, 25.0, 18)
+    t2 = Truck("Mercedes", "Actros", 60000.0, 30.0, 20)
 
-    n_copies = 3
+    km = 150
+    fuel_price = 1.5
 
-    storytelling = [s1, s2]
-    for s in storytelling:
-        s.show_info()
-        print(s.get_title())
-        print(s.get_author())
-        print(s.get_price())
-        print(s.get_quantity())
-        print(s.get_genre())
-        print(s.calculate_total_price(n_copies))
+    car = [c1, c2]
+    for c in car:
+        c.show_info()
+        print(c.get_brand())
+        print(c.get_model())
+        print(c.get_price())
+        print(c.get_consumption())
+        print(c.get_number_of_doors())
+        print(c.calculate_fuel_cost(km, fuel_price))
 
-    nonfiction = [n1, n2]
-    for n in nonfiction:
-        n.show_info()
-        print(n.get_title())
-        print(n.get_author())
-        print(n.get_price())
-        print(n.get_quantity())
-        print(n.get_topic())
-        print(n.calculate_total_price(n_copies))
+    motorcycle = [m1, m2]
+    for m in motorcycle:
+        m.show_info()
+        print(m.get_brand())
+        print(m.get_model())
+        print(m.get_price())
+        print(m.get_consumption())
+        print(m.get_typee())
+        print(m.calculate_fuel_cost(km, fuel_price))
 
-    technical_manual = [t1, t2]
-    for t in technical_manual:
+    truck = [t1, t2]
+    for t in truck:
         t.show_info()
-        print(t.get_title())
-        print(t.get_author())
+        print(t.get_brand())
+        print(t.get_model())
         print(t.get_price())
-        print(t.get_quantity())
-        print(t.get_field())
-        print(t.get_level())
-        print(t.calculate_total_price(n_copies))
+        print(t.get_consumption())
+        print(t.get_load_capacity())
+        print(t.calculate_fuel_cost(km, fuel_price))
 
 
 if __name__ == '__main__':
