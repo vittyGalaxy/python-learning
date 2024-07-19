@@ -1,118 +1,117 @@
-class Product:
-    def __init__(self, name, price, amount):
-        self.name = name
+class Book:
+    def __init__(self, title, author, price, quantity):
+        self.title = title
+        self.author = author
         self.price = price
-        self.amount = amount
+        self.quantity = quantity
 
-    def get_name(self):
-        return self.name
+    def get_title(self):
+        return self.title
+
+    def get_author(self):
+        return self.author
 
     def get_price(self):
         return self.price
 
-    def get_amount(self):
-        return self.amount
+    def get_quantity(self):
+        return self.quantity
 
     def show_info(self):
-        print(f"nome: {self.name}, prezzo: {self.price}, quantita': {self.amount}")
+        print(f"nome: {self.title}, autore: {self.author}, prezzo: {self.price}, quantita': {self.quantity}")
 
-    def calculate_counted_price(self, discount):
-        discounted_price = self.price * (1 - discount / 100)
-        return round(discounted_price, 2)
+    def calculate_total_price(self, n_copies):
+        if n_copies > self.quantity:
+            return "Quantita' non disponibile"
+
+        return round(self.price * n_copies, 2)
 
 
-class Computer(Product):
-    def __init__(self, name, price, amount, processor, ram):
-        super().__init__(name, price, amount)
-        self.processor = processor
-        self.ram = ram
+class Storytelling(Book):
+    def __init__(self, title, author, price, quantity, genre):
+        super().__init__(title, author, price, quantity)
+        self.genre = genre
 
-    def get_ram(self):
-        return self.ram
-
-    def get_processor(self):
-        return self.processor
+    def get_genre(self):
+        return self.genre
 
     def show_info(self):
         super().show_info()
-        print(f"ram: {self.ram}, processore: {self.processor}")
+        print(f"genere: {self.genre}")
 
 
-class Telephone(Product):
-    def __init__(self, name, price, amount, brand, model):
-        super().__init__(name, price, amount)
-        self.brand = brand
-        self.model = model
+class Nonfiction(Book):
+    def __init__(self, title, author, price, quantity, topic):
+        super().__init__(title, author, price, quantity)
+        self.topic = topic
 
-    def get_brand(self):
-        return self.brand
-
-    def get_model(self):
-        return self.model
+    def get_topic(self):
+        return self.topic
 
     def show_info(self):
         super().show_info()
-        print(f"marca: {self.brand}, modello: {self.model}")
+        print(f"argomento: {self.topic}")
 
 
-class Television(Product):
-    def __init__(self, name, price, amount, size, resolution):
-        super().__init__(name, price, amount)
-        self.size = size
-        self.resolution = resolution
+class TechnicalManual(Book):
+    def __init__(self, title, author, price, quantity, field, level):
+        super().__init__(title, author, price, quantity)
+        self.field = field
+        self.level = level
 
-    def get_size(self):
-        return self.size
+    def get_field(self):
+        return self.field
 
-    def get_resolution(self):
-        return self.resolution
+    def get_level(self):
+        return self.level
 
     def show_info(self):
         super().show_info()
-        print(f"dimensioni: {self.size}, risoluzione: {self.resolution}")
+        print(f"campo: {self.field}, livello: {self.level}")
 
 
 def main():
-    c1 = Computer("Laptop HP", 1200.0, 10, "Intel i7", 16)
-    c2 = Computer("MacBook Pro", 2500.0, 5, "Apple M1", 16)
+    s1 = Storytelling("Il Grande Gatsby", "F. Scott Fitzgerald", 15.0, 20, "Romanzo")
+    s2 = Storytelling("1984", "George Orwell", 12.0, 15, "Distopia")
 
-    t1 = Telephone("iPhone 13", 999.0, 15, "Apple", "13")
-    t2 = Telephone("Samsung Galaxy S21", 799.0, 20, "Samsung", "Galaxy S21")
+    n1 = Nonfiction("Sapiens", "Yuval Noah Harari", 20.0, 10, "Storia")
+    n2 = Nonfiction("Il Gene", "Siddhartha Mukherjee", 18.0, 8, "Biologia")
 
-    t3 = Television("LG OLED55", 1800.0, 7, 55, "4K")
-    t4 = Television("Sony Bravia", 1500.0, 8, 65, "4K")
+    t1 = TechnicalManual("Python per tutti", "Mark Lutz", 25.0, 5, "Programmazione", "Intermedio")
+    t2 = TechnicalManual("Introduzione alla Data Science", "Joel Grus", 30.0, 3, "Data Science", "Base")
 
-    discount = 10
+    n_copies = 3
 
-    computer = [c1, c2]
-    for c in computer:
-        c.show_info()
-        print(c.get_name())
-        print(c.get_price())
-        print(c.get_amount())
-        print(c.get_ram())
-        print(c.get_processor())
-        print(c.calculate_counted_price(discount))
+    storytelling = [s1, s2]
+    for s in storytelling:
+        s.show_info()
+        print(s.get_title())
+        print(s.get_author())
+        print(s.get_price())
+        print(s.get_quantity())
+        print(s.get_genre())
+        print(s.calculate_total_price(n_copies))
 
-    telephone = [t1, t2]
-    for t in telephone:
+    nonfiction = [n1, n2]
+    for n in nonfiction:
+        n.show_info()
+        print(n.get_title())
+        print(n.get_author())
+        print(n.get_price())
+        print(n.get_quantity())
+        print(n.get_topic())
+        print(n.calculate_total_price(n_copies))
+
+    technical_manual = [t1, t2]
+    for t in technical_manual:
         t.show_info()
-        print(t.get_name())
+        print(t.get_title())
+        print(t.get_author())
         print(t.get_price())
-        print(t.get_amount())
-        print(t.get_brand())
-        print(t.get_model())
-        print(t.calculate_counted_price(discount))
-
-    television = [t3, t4]
-    for t in television:
-        t.show_info()
-        print(t.get_name())
-        print(t.get_price())
-        print(t.get_amount())
-        print(t.get_size())
-        print(t.get_resolution())
-        print(t.calculate_counted_price(discount))
+        print(t.get_quantity())
+        print(t.get_field())
+        print(t.get_level())
+        print(t.calculate_total_price(n_copies))
 
 
 if __name__ == '__main__':
