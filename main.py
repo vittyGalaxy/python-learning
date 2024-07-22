@@ -8,22 +8,41 @@ enter_text.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
 
 
 def click_btn(number):
-    enter_text.insert(0, number)
+    num_current = enter_text.get()
+    enter_text.delete(0, "end")
+    enter_text.insert(0, str(num_current) + str(number))
+
+
+def btn_canc():
+    enter_text.delete(0, "end")
+
+
+def btn_sum():
+    first_number = enter_text.get()
+    global f_num
+    f_num = int(first_number)
+    enter_text.delete(0, "end")
+
+
+def btn_equal():
+    second_number = enter_text.get()
+    enter_text.delete(0, "end")
+    enter_text.insert(0, f_num + int(second_number))
 
 
 btn_1 = tkinter.Button(root, text="1", padx=40, pady=20, command=lambda: click_btn(1))
-btn_2 = tkinter.Button(root, text="2", padx=40, pady=20, command=lambda:click_btn(2))
-btn_3 = tkinter.Button(root, text="3", padx=40, pady=20, command=lambda:click_btn(3))
-btn_4 = tkinter.Button(root, text="4", padx=40, pady=20, command=lambda:click_btn(4))
-btn_5 = tkinter.Button(root, text="5", padx=40, pady=20, command=lambda:click_btn(5))
-btn_6 = tkinter.Button(root, text="6", padx=40, pady=20, command=lambda:click_btn(6))
-btn_7 = tkinter.Button(root, text="7", padx=40, pady=20, command=lambda:click_btn(7))
-btn_8 = tkinter.Button(root, text="8", padx=40, pady=20, command=lambda:click_btn(8))
-btn_9 = tkinter.Button(root, text="9", padx=40, pady=20, command=lambda:click_btn(9))
-btn_0 = tkinter.Button(root, text="0", padx=40, pady=20, command=lambda:click_btn(0))
-btn_sum = tkinter.Button(root, text="+", padx=39, pady=20, command=lambda:click_btn())
-btn_equal = tkinter.Button(root, text="=", padx=39, pady=20, command=lambda:click_btn())
-btn_cancel = tkinter.Button(root, text="Cancella", padx=199, pady=20, command=lambda:click_btn())
+btn_2 = tkinter.Button(root, text="2", padx=40, pady=20, command=lambda: click_btn(2))
+btn_3 = tkinter.Button(root, text="3", padx=40, pady=20, command=lambda: click_btn(3))
+btn_4 = tkinter.Button(root, text="4", padx=40, pady=20, command=lambda: click_btn(4))
+btn_5 = tkinter.Button(root, text="5", padx=40, pady=20, command=lambda: click_btn(5))
+btn_6 = tkinter.Button(root, text="6", padx=40, pady=20, command=lambda: click_btn(6))
+btn_7 = tkinter.Button(root, text="7", padx=40, pady=20, command=lambda: click_btn(7))
+btn_8 = tkinter.Button(root, text="8", padx=40, pady=20, command=lambda: click_btn(8))
+btn_9 = tkinter.Button(root, text="9", padx=40, pady=20, command=lambda: click_btn(9))
+btn_0 = tkinter.Button(root, text="0", padx=40, pady=20, command=lambda: click_btn(0))
+btn_sum = tkinter.Button(root, text="+", padx=39, pady=20, command=btn_sum)
+btn_equal = tkinter.Button(root, text="=", padx=39, pady=20, command=btn_equal)
+btn_cancel = tkinter.Button(root, text="Cancella", padx=199, pady=20, command= btn_canc)
 
 btn_1.grid(row=3, column=0)
 btn_2.grid(row=3, column=1)
