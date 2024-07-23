@@ -13,7 +13,7 @@ def btn_save():
     t = enter_text.get()
     save.append(t)
     f = open("file.txt", "w")
-    f.write(t)
+    f.write(str(save))
     f.close()
     s = "salvato il nome " + t
     write = tkinter.Label(root, text=s)
