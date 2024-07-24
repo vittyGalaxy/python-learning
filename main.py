@@ -1,27 +1,25 @@
-import tkinter
-
-
-def button_welcome():
-    print("Benvenuto!!!")
-
-
-root = tkinter.Tk()
-root.title("Benvenuto!")
-root.geometry("300x200")
-
-enter_text = tkinter.Entry(root, width=60, bg="black", fg="white")
-enter_text.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
-
-btn_welcome = tkinter.Button(root, text="save", padx=40, pady=29, command=button_welcome)
-
-btn_welcome.grid(row=1, column=1)
+import numpy as np
 
 
 def main():
-    pass
+    date = [1, 2, 3, 4]
+    arr = np.array(date)
+    print("array: ", arr)
 
+    zeros_array = np.zeros(5)
+    ones_array = np.ones(5)
+    print("zeros: ", zeros_array)
+    print("ones: ", ones_array)
 
-root.mainloop()
+    empty_array = np.empty(3)
+    range_array = np.arange(5)
+    print("Empty: ", empty_array)
+    print("Range: ", range_array)
+
+    matrix = np.array([[1, 2, 3], [4, 5, 6]])
+    print("Matrice: ")
+    print(matrix)
+
 
 if __name__ == '__main__':
     main()
