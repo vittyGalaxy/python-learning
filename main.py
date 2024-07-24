@@ -2,26 +2,35 @@ import numpy as np
 
 
 def main():
-    arr = np.array([10, 20, 30, 40, 50])
-    first_element = arr[0]
-    fourth_element = arr[3]
-    print("Primo elemento: ", first_element)
-    print("Quarto elemento: ", fourth_element)
+    a = np.array([1, 2, 3, 4])
+    b = np.array([10, 20, 30, 40])
+    sum = a + b
+    sub = b - a
+    mul = a * b
+    div = b / a
+    print("Somma: ", sum)
+    print("Sottrazione: ", sub)
+    print("Moltiplicazione: ", mul)
+    print("Divisione: ", div)
 
-    subsequence = arr[1:4]
-    print("Sottosequenza: ", subsequence)
+    arr = np.array([1, 2, 3, 4])
 
-    matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
-    first_line = matrix[0]
-    second_line = matrix[:, 1]
-    print("Prima riga: ", first_line)
-    print("Seconda colonna: ", second_line)
+    square_roots = np.sqrt(arr)
+    exponential = np.exp(arr)
 
-    under_matrix = matrix[0:2, 1:3]
-    print("sotto-matrice:\n", under_matrix)
+    print("Radici quadrate: ", square_roots)
+    print("Esponenziali: ", exponential)
 
-    matrix[2, 2] = 99
-    print("Matrice, aggiornata: \n", matrix)
+    c = np.array([1, 2, 3])
+    d = 10
+    result = c + d
+    print("Il risultato e': ", result)
+
+    x = np.array([1, 2, 3])
+    y = np.array([[1], [2], [3]])
+    result_matrix = x + y
+    print("Il risultato del broadsting con una matrice: ", result_matrix)
+
 
 if __name__ == '__main__':
     main()
