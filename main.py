@@ -2,34 +2,20 @@ import numpy as np
 
 
 def main():
-    a = np.array([1, 2, 3, 4])
-    b = np.array([10, 20, 30, 40])
-    sum = a + b
-    sub = b - a
-    mul = a * b
-    div = b / a
-    print("Somma: ", sum)
-    print("Sottrazione: ", sub)
-    print("Moltiplicazione: ", mul)
-    print("Divisione: ", div)
+    original_array = np.arange(10)
+    remodelled_array = original_array.reshape((2, 5))
+    print("Array originale: ", original_array)
+    print("Array rimodellato:\n", remodelled_array)
 
-    arr = np.array([1, 2, 3, 4])
+    array_to_resize = np.array([1, 2, 3, 4])
+    array_to_resize.resize((2, 3))
+    print("Array ridimensionato:\n", array_to_resize)
 
-    square_roots = np.sqrt(arr)
-    exponential = np.exp(arr)
-
-    print("Radici quadrate: ", square_roots)
-    print("Esponenziali: ", exponential)
-
-    c = np.array([1, 2, 3])
-    d = 10
-    result = c + d
-    print("Il risultato e': ", result)
-
-    x = np.array([1, 2, 3])
-    y = np.array([[1], [2], [3]])
-    result_matrix = x + y
-    print("Il risultato del broadsting con una matrice: ", result_matrix)
+    two_dimensional_array = np.array([[1, 2], [3, 4]])
+    flat_ravel = two_dimensional_array.ravel()
+    array_flatten = two_dimensional_array.flatten()
+    print("Raven: ", flat_ravel)
+    print("Flatten: ", array_flatten)
 
 
 if __name__ == '__main__':
