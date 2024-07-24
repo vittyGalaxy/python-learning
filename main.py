@@ -2,23 +2,18 @@ import numpy as np
 
 
 def main():
-    date = [1, 2, 3, 4]
-    arr = np.array(date)
-    print("array: ", arr)
+    int_array = np.array([1, 2, 3, 4], dtype="int32")
+    float_array = np.array([1.0, 2.0, 3.0], dtype="float64")
 
-    zeros_array = np.zeros(5)
-    ones_array = np.ones(5)
-    print("zeros: ", zeros_array)
-    print("ones: ", ones_array)
+    print("Array di interi: ", int_array)
+    print("Array di float: ", float_array)
 
-    empty_array = np.empty(3)
-    range_array = np.arange(5)
-    print("Empty: ", empty_array)
-    print("Range: ", range_array)
-
-    matrix = np.array([[1, 2, 3], [4, 5, 6]])
-    print("Matrice: ")
-    print(matrix)
+    date = np.array([[1, 2, 3], [4, 5, 6]], dtype="int64")
+    print("Numero di dimensioni: ", date.ndim)
+    print("Forma dell'array: ", date.shape)
+    print("Dimensione totale dell'array: ", date.size)
+    print("Tipo di dati dell'array: ", date.dtype)
+    print("Dimensione in byte degli elementi: ", date.itemsize, "byte")
 
 
 if __name__ == '__main__':
