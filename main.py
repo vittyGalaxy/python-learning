@@ -2,20 +2,25 @@ import numpy as np
 
 
 def main():
-    original_array = np.arange(10)
-    remodelled_array = original_array.reshape((2, 5))
-    print("Array originale: ", original_array)
-    print("Array rimodellato:\n", remodelled_array)
+    array1 = np.array(([1, 2, 3]))
+    array2 = np.array([4, 5, 6])
 
-    array_to_resize = np.array([1, 2, 3, 4])
-    array_to_resize.resize((2, 3))
-    print("Array ridimensionato:\n", array_to_resize)
+    concatenated = np.concatenate((array1, array2))
+    print("Concatenato: ", concatenated)
 
-    two_dimensional_array = np.array([[1, 2], [3, 4]])
-    flat_ravel = two_dimensional_array.ravel()
-    array_flatten = two_dimensional_array.flatten()
-    print("Raven: ", flat_ravel)
-    print("Flatten: ", array_flatten)
+    vstack = np.vstack((array1, array2))
+    print("Vstack:\n", vstack)
+
+    hstack = np.hstack((array1, array2))
+    print("Hstack: ", hstack)
+
+    large_array = np.arange(12)
+    divided = np.split(large_array, 3)
+    print("Diviso in 3 parti: ", divided)
+
+    latge_matrix = np.array([[1, 2, 3], [4, 5, 6]])
+    hsplit = np.hsplit(latge_matrix, 3)
+    print("Hsplit:\n", hsplit)
 
 
 if __name__ == '__main__':
