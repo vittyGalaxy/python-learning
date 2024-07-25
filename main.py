@@ -2,25 +2,22 @@ import numpy as np
 
 
 def main():
-    array1 = np.array(([1, 2, 3]))
-    array2 = np.array([4, 5, 6])
+    array = np.array([1, 2, 3])
+    number = 4
+    result = array + number
+    print("Risultato: ", result)
 
-    concatenated = np.concatenate((array1, array2))
-    print("Concatenato: ", concatenated)
+    x = np.array([[1, 2, 3], [4, 5, 6]])
+    y = np.array([100, 200, 300])
+    z = x + y
+    print("Z: ", z)
 
-    vstack = np.vstack((array1, array2))
-    print("Vstack:\n", vstack)
-
-    hstack = np.hstack((array1, array2))
-    print("Hstack: ", hstack)
-
-    large_array = np.arange(12)
-    divided = np.split(large_array, 3)
-    print("Diviso in 3 parti: ", divided)
-
-    latge_matrix = np.array([[1, 2, 3], [4, 5, 6]])
-    hsplit = np.hsplit(latge_matrix, 3)
-    print("Hsplit:\n", hsplit)
+    dataset = np.random.randint(0, 100, size=(5, 3))
+    average = dataset.mean(axis=0)
+    standard_waste = dataset.std(axis=0)
+    normalized_dataset = (dataset - average) / standard_waste
+    print("Dataset originale:\n", dataset)
+    print("Dataset normalizzato:\n", normalized_dataset)
 
 
 if __name__ == '__main__':
