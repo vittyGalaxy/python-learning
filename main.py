@@ -14,6 +14,11 @@ def main():
     print("Il minore e': ", minn)
     print("La media e': ", average)
 
+    mask = array_1d > 5
+    major_elements_5 = array_1d[mask]
+    print("Maschera booleana per elementi > 5:\n", mask)
+    print("Elementi maggiori di 5: ", major_elements_5)
+
 
 if __name__ == '__main__':
     main()
