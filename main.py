@@ -2,17 +2,16 @@ import numpy as np
 
 
 def main():
-    date = np.array([10, 20, 30, 40, 50])
-    print("Media: ", np.mean(date))
-    print("Mediana: ", np.median(date))
-    print("Deviazione standard: ", np.std(date))
-    print("Varianaza: ", np.var(date))
+    date = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 
-    print("Deviazione standard (campione): ", np.std(date, ddof=1))
-    print("Varianza (campione): ", np.var(date, ddof=1))
+    mask = date > 5
+    print("Machera: ", mask)
 
-    print("Minimo: ", np.min(date), "Massimo: ", np.max(date))
-    print("Somma totale: ", np.sum(date), "Prodotto totale: ", np.prod(date))
+    filtered_date = date[mask]
+    print("Dati filtrati: ", filtered_date)
+
+    modifield_date = np.where(date < 5, 0, date)
+    print("Dati modificati: ", modifield_date)
 
 
 if __name__ == '__main__':
