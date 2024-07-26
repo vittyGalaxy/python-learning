@@ -2,16 +2,17 @@ import numpy as np
 
 
 def main():
-    date = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+    array_1d = np.arange(10)
+    print("Array 1D", array_1d)
 
-    mask = date > 5
-    print("Machera: ", mask)
-
-    filtered_date = date[mask]
-    print("Dati filtrati: ", filtered_date)
-
-    modifield_date = np.where(date < 5, 0, date)
-    print("Dati modificati: ", modifield_date)
+    summ = np.sum(array_1d)
+    maxx = np.max(array_1d)
+    minn = np.min(array_1d)
+    average = np.mean(array_1d)
+    print("La somma e': ", summ)
+    print("Il massimo e': ", maxx)
+    print("Il minore e': ", minn)
+    print("La media e': ", average)
 
 
 if __name__ == '__main__':
