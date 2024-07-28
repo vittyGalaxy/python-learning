@@ -2,18 +2,22 @@ import numpy as np
 
 
 def main():
-    temperature = np.random.uniform(low=0, high=40, size=365)
+    n = 4
 
-    average_temperature = np.mean(temperature)
-    max_temperature = np.max(temperature)
-    min_temperature = np.min(temperature)
-    print(f"Temperatura media: {average_temperature:.2f} gradi")
-    print(f"Temperatura massima: {max_temperature:.2f} gradi")
-    print(f"Temperatura minima: {min_temperature:.2f} gradi")
+    np.random.seed(0)
+    matrix_a = np.random.randint(0, 11, size=(n, n))
+    matrix_b = np.random.randint(0, 11, size=(n, n))
+    print("Matrice A:\n", matrix_a)
+    print("Matrice B:\n", matrix_b)
 
-    hot_days = np.where(temperature > 30)[0]
-    number_of_hot_days = len(hot_days)
-    print(f"Giorni con temperatura > 30 gradi: {number_of_hot_days}")
+    summ = matrix_a + matrix_b
+    print("Somma delle matrici:\n", summ)
+
+    subb = matrix_a - matrix_b
+    print("Differenza delle matrici:\n", subb)
+
+    mul = matrix_a * matrix_b
+    print("Prodotto delle matrici:\n", mul)
 
 
 if __name__ == '__main__':
