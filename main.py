@@ -1,23 +1,25 @@
+import random
+
 import numpy as np
 
 
+def create_array(dim_1, dim_2, val_min, val_max):
+    a = []
+    b = []
+    for i in range(dim_1):
+        a.append(random.randint(val_min, val_max))
+
+    for i in range(dim_2):
+        b.append(random.randint(val_min, val_max))
+
+    array = np.array(a, b)
+
+    return array
+
+
 def main():
-    n = 4
-
-    np.random.seed(0)
-    matrix_a = np.random.randint(0, 11, size=(n, n))
-    matrix_b = np.random.randint(0, 11, size=(n, n))
-    print("Matrice A:\n", matrix_a)
-    print("Matrice B:\n", matrix_b)
-
-    summ = matrix_a + matrix_b
-    print("Somma delle matrici:\n", summ)
-
-    subb = matrix_a - matrix_b
-    print("Differenza delle matrici:\n", subb)
-
-    mul = matrix_a * matrix_b
-    print("Prodotto delle matrici:\n", mul)
+    arr = create_array(3, 4, 0, 10)
+    print(arr)
 
 
 if __name__ == '__main__':
