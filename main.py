@@ -3,23 +3,23 @@ import random
 import numpy as np
 
 
-def create_array(dim_1, dim_2, val_min, val_max):
-    a = []
-    b = []
-    for i in range(dim_1):
-        a.append(random.randint(val_min, val_max))
-
-    for i in range(dim_2):
-        b.append(random.randint(val_min, val_max))
-
-    array = np.array(a, b)
-
-    return array
-
-
 def main():
-    arr = create_array(3, 4, 0, 10)
-    print(arr)
+    a = np.random.randint(1, 51, 10)
+    print("Gli elementi sono: " + str(a))
+
+    s = np.sum(a)
+    print("somma: " + str(s))
+
+    ma = np.max(a)
+    print("massimo: " + str(ma))
+    mi = np.min(a)
+    print("minimo: " + str(mi))
+
+    av = np.mean(a)
+    print("media: " + str(av))
+
+    sor = np.sort(a)
+    print("Sort: " + str(sor))
 
 
 if __name__ == '__main__':
