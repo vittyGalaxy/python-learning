@@ -4,22 +4,20 @@ import numpy as np
 
 
 def main():
-    a = np.random.randint(1, 51, 10)
-    print("Gli elementi sono: " + str(a))
+    a = np.random.randint(10, 100, (3, 4))
+    print("Matrice: " + str(a))
 
-    s = np.sum(a)
-    print("somma: " + str(s))
+    sm = np.sum(a)
+    print("somma: " + str(sm))
 
-    ma = np.max(a)
-    print("massimo: " + str(ma))
-    mi = np.min(a)
-    print("minimo: " + str(mi))
+    sr = np.sum(a, axis=1)
+    print("Somma degli elementi per riga: " + str(sr))
 
-    av = np.mean(a)
-    print("media: " + str(av))
+    maxc = np.max(a, axis=0)
+    print("valore massimo di ciascuna colonna: " + str(maxc))
 
-    sor = np.sort(a)
-    print("Sort: " + str(sor))
+    arr = a + 10
+    print("Matrice modificata: " + str(arr))
 
 
 if __name__ == '__main__':
