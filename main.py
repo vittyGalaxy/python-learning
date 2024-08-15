@@ -4,20 +4,13 @@ import numpy as np
 
 
 def main():
-    a = np.random.randint(10, 100, (3, 4))
-    print("Matrice: " + str(a))
+    n = input("Inserisci quante ripetizioni di x: ")
 
-    sm = np.sum(a)
-    print("somma: " + str(sm))
+    if int(n) < 0:
+        return 0
 
-    sr = np.sum(a, axis=1)
-    print("Somma degli elementi per riga: " + str(sr))
-
-    maxc = np.max(a, axis=0)
-    print("valore massimo di ciascuna colonna: " + str(maxc))
-
-    arr = a + 10
-    print("Matrice modificata: " + str(arr))
+    for i in range(0, int(n)):
+        print(str(i + 1) + ") x")
 
 
 if __name__ == '__main__':
