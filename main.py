@@ -1,41 +1,39 @@
-class Counter:
+class Array:
     def __init__(self):
-        self.c = 0
+        self.a = []
 
-    # getter
-    def get_counter(self):
-        return self.c
+    def add_head(self, number):
+        self.a.insert(0, number)
 
-    # setter
-    def set_counter(self, number):
-        self.c = number
+    def add_end(self, number):
+        self.a.append(number)
 
-    def increment(self):
-        self.c += 1
+    def array_sort(self):
+        self.a.sort()
 
-    def decrement(self):
-        self.c -= 1
+    def number_search(self, number):
+        b = []
+
+        for i in self.a:
+            if self.a[i] == number:
+                b.append(i)
+
+        return b
+
+    def get_array(self):
+        return self.a
 
 
 def main():
-    counter = Counter()
-    print(counter.get_counter())
-    counter.increment()
-    print(counter.get_counter())
-    counter.decrement()
-    print(counter.get_counter())
-    counter.set_counter(3)
-    print(counter.get_counter())
-    counter.increment()
-    print(counter.get_counter())
-    counter.decrement()
-    print(counter.get_counter())
-    counter.decrement()
-    print(counter.get_counter())
-    counter.decrement()
-    print(counter.get_counter())
-    counter.decrement()
-    print(counter.get_counter())
+    array = Array()
+    array.add_end(3)
+    array.add_head(1)
+    array.add_head(2)
+    print(array.get_array())
+    array.array_sort()
+    print(array.get_array())
+    array.add_head(1)
+    print(array.number_search(1))
 
 
 if __name__ == '__main__':
