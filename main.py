@@ -1,39 +1,15 @@
-class Array:
-    def __init__(self):
-        self.a = []
+import random
+import numpy as np
 
-    def add_head(self, number):
-        self.a.insert(0, number)
 
-    def add_end(self, number):
-        self.a.append(number)
+def create_array(dim1, dim2, val_min, val_max):
+    matr = np.random.randint(val_min, val_max, (dim1, dim2))
 
-    def array_sort(self):
-        self.a.sort()
-
-    def number_search(self, number):
-        b = []
-
-        for i in self.a:
-            if self.a[i] == number:
-                b.append(i)
-
-        return b
-
-    def get_array(self):
-        return self.a
+    return matr
 
 
 def main():
-    array = Array()
-    array.add_end(3)
-    array.add_head(1)
-    array.add_head(2)
-    print(array.get_array())
-    array.array_sort()
-    print(array.get_array())
-    array.add_head(1)
-    print(array.number_search(1))
+    print(create_array(2, 3, 2, 7))
 
 
 if __name__ == '__main__':
