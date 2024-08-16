@@ -1,17 +1,14 @@
-import random
-
-import numpy as np
-
-
 def main():
-    b = input("Inserisci la base: ")
-    e = input("Inserisci l'esponente: ")
+    n = 10
 
-    p = 1
-    for i in range(0, int(e)):
-        p *= int(b)
+    counter = 0
+    for i in range(0, int(n)):
+        a = input("Inserisci numero: ")
 
-    print("Il ristato e': ", str(p))
+        if int(a) == 9:
+            counter += 1
+
+    print("I numeri 9 sono: ", str(counter))
 
 
 if __name__ == '__main__':
