@@ -4,13 +4,14 @@ import numpy as np
 
 
 def main():
-    n = input("Inserisci quante ripetizioni di x: ")
+    b = input("Inserisci la base: ")
+    e = input("Inserisci l'esponente: ")
 
-    if int(n) < 0:
-        return 0
+    p = 1
+    for i in range(0, int(e)):
+        p *= int(b)
 
-    for i in range(0, int(n)):
-        print(str(i + 1) + ") x")
+    print("Il ristato e': ", str(p))
 
 
 if __name__ == '__main__':
